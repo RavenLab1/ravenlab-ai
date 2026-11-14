@@ -43,7 +43,7 @@ $('aiForm').addEventListener('submit',async e=>{
   if(!message)return;
   chatBubble(message,'user');input.value='';btn.disabled=true;
   try{
-    const {data,error}=await sb.functions.invoke('ravenlab-chat',{body:{message}});
+    const {data,error}=await sb.functions.invoke('ravenlab-chat-',{body:{message}});
     if(error){let detail=error.message;try{const body=await error.context?.json();if(body?.error)detail=body.error}catch{}throw Error(detail)}
     if(!data?.reply)throw Error('لم يصل رد من الإيجنت');
     chatBubble(data.reply,'bot');
