@@ -1,20 +1,29 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RavenLab AI — Dashboard v0.3</title><style>
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RavenLab AI — Dashboard v0.5</title><style>
 :root{--bg:#0c100d;--panel:#151c16;--panel2:#1c261d;--line:#2b3a2d;--accent:#a6ee5a;--muted:#a1ad9f;--text:#f1f6ed;--danger:#f6a19b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,'Segoe UI',sans-serif;line-height:1.6}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:1320px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:25px}.logo{display:flex;align-items:center;gap:12px}.mark{background:var(--accent);color:#0f170c;width:45px;height:45px;border-radius:13px;display:grid;place-items:center;font-size:24px;font-weight:bold}.sub,.muted{color:var(--muted)}h1,h2,h3,p{margin:0}h1{font-size:23px}h2{font-size:18px;margin-bottom:12px}.pill{border:1px solid #466138;background:#22311d;color:#c7f4a2;border-radius:100px;padding:6px 12px;font-size:12px}.badge{border-radius:8px;background:#293627;color:#c9efaf;padding:4px 9px;font-size:12px;display:inline-block}.warning{background:#3b3021;color:#f6d49b}.tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:23px}.tab{background:#1b251c;border:1px solid var(--line);color:#dce6d9;border-radius:10px;padding:10px 17px}.tab.active{background:var(--accent);color:#18200e;font-weight:bold;border-color:var(--accent)}.view{display:none}.view.active{display:block}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:0 0 20px}.card{border:1px solid var(--line);background:var(--panel);border-radius:15px;padding:18px}.card small{color:var(--muted)}.number{font-size:25px;font-weight:bold;margin-top:5px;direction:ltr;text-align:right}.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}.panelhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px;flex-wrap:wrap}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:right;min-width:600px}th,td{padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:normal}tr:last-child td{border-bottom:0}input,select{width:100%;background:#0c130f;border:1px solid #364839;border-radius:9px;color:var(--text);padding:11px;min-width:0}input:focus,select:focus{outline:2px solid #78ae4a}label{display:grid;gap:5px;font-size:13px;color:#d1decf}.form{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.btn{background:var(--accent);color:#142008;border:0;border-radius:10px;padding:11px 17px;font-weight:bold}.btn.ghost{background:#263327;color:var(--text);border:1px solid var(--line)}.btn.danger{background:#3e2929;color:#ffbfbf}.full{grid-column:1/-1}.stack{display:grid;gap:13px}.notice{border:1px dashed #536b44;background:#1a2818;padding:12px;border-radius:10px;color:#c9dfa8;font-size:13px;margin-bottom:17px}.chat{border:1px solid var(--line);border-radius:12px;background:#111712;min-height:280px;max-height:440px;overflow:auto;padding:15px;display:flex;flex-direction:column;gap:12px}.bubble{padding:12px 14px;border-radius:12px;max-width:83%;white-space:pre-wrap;font-size:14px}.bubble.user{background:#28402c;align-self:flex-start}.bubble.bot{background:#242b25;align-self:flex-end}.chatrow{display:flex;gap:9px;margin-top:12px}.chatrow input{flex:1}.chatrow button{white-space:nowrap}.foot{color:var(--muted);font-size:12px;margin:24px 0 8px;text-align:center}.empty{color:var(--muted);padding:22px 0}.tag{color:#b5df8d}.headline{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px}ul{margin:0;padding-right:21px}.help{font-size:12px;color:var(--muted);margin-top:8px}@media(max-width:850px){.metrics{grid-template-columns:repeat(2,1fr)}.grid,.form{grid-template-columns:1fr}.app{padding:12px}.card{padding:13px}h1{font-size:20px}.number{font-size:20px}}@media(max-width:400px){.metrics{grid-template-columns:1fr 1fr}.chatrow{flex-wrap:wrap}.chatrow button{width:100%}}
 
 .auth-wrap{max-width:440px;margin:8vh auto}.hidden{display:none!important}.status{padding:10px;border-radius:9px;background:#1b291c;margin:10px 0;color:#d4edc3}.error{background:#382626;color:#ffbdba}.config{background:#2b291b;color:#f9daa4}.top-actions{display:flex;align-items:center;gap:10px}.btn:disabled{opacity:.5;cursor:not-allowed}
 </style></head><body>
 <main class="app">
-<header class="top"><div class="logo"><div class="mark">R</div><div><h1>RavenLab AI</h1><div class="sub">لوحة إدارة متصلة بـSupabase • v0.3</div></div></div><div class="top-actions"><span class="pill">● غير مرتبط بإنستغرام بعد</span><button id="logout" class="btn ghost hidden">تسجيل خروج</button></div></header>
+<header class="top"><div class="logo"><div class="mark">R</div><div><h1>RavenLab AI</h1><div class="sub">لوحة إدارة متصلة بـSupabase • v0.5</div></div></div><div class="top-actions"><span class="pill">● غير مرتبط بإنستغرام بعد</span><button id="logout" class="btn ghost hidden">تسجيل خروج</button></div></header>
 <section id="setup" class="auth-wrap hidden"><div class="card stack"><h2>إعداد اتصال Supabase</h2><div class="notice">أدخل فقط Project URL وPublishable Key أو مفتاح anon العام. لا تدخل service_role أو secret key إطلاقاً.</div><form id="configForm" class="stack"><label>Project URL<input id="sbUrl" type="url" required placeholder="https://xxxxx.supabase.co"></label><label>Publishable / anon key<input id="sbKey" required placeholder="sb_publishable_... أو eyJ..."></label><button class="btn">حفظ الاتصال بهذا المتصفح</button></form><p class="help">يمكن لاحقاً وضع القيم العامة في ملف config.js. تحفظ إعدادات الاتصال العامة في هذا المتصفح فقط.</p></div></section>
 <section id="auth" class="auth-wrap hidden"><div class="card stack"><h2>تسجيل دخول المدير</h2><div class="notice">استخدم البريد وكلمة المرور اللذين أنشأتهما في Supabase Authentication.</div><form id="loginForm" class="stack"><label>البريد الإلكتروني<input type="email" name="email" autocomplete="username" required></label><label>كلمة المرور<input type="password" name="password" autocomplete="current-password" required></label><button class="btn" type="submit">تسجيل الدخول</button></form><button id="changeConfig" class="btn ghost" type="button">تعديل اتصال Supabase</button></div></section>
 <section id="app" class="hidden"><div id="notice" class="status">جار التحميل...</div>
-<nav class="tabs" id="tabs"><button class="tab active" data-tab="overview">نظرة عامة</button><button class="tab" data-tab="products">المنتجات</button><button class="tab" data-tab="orders">الطلبات</button><button class="tab" data-tab="expenses">المصاريف</button><button class="tab" data-tab="assistant">الإيجنت</button></nav>
+<nav class="tabs" id="tabs"><button class="tab active" data-tab="overview">نظرة عامة</button><button class="tab" data-tab="products">المنتجات</button><button class="tab" data-tab="orders">الطلبات</button><button class="tab" data-tab="expenses">المصاريف</button><button class="tab" data-tab="knowledge">معرفة المنتجات</button><button class="tab" data-tab="assistant">الإيجنت</button></nav>
 <section class="view active" id="overview"><div class="metrics" id="metrics"></div><div class="grid"><div class="card"><h2>أحدث الطلبات</h2><div class="tablewrap" id="latest"></div></div><div class="card"><h2>ملاحظات</h2><div id="alerts" class="stack"></div></div></div></section>
 <section class="view" id="products"><h2>المنتجات</h2><div class="card stack"><form id="productForm" class="form"><label>اسم المنتج<input name="name" maxlength="100" required></label><label>السعر (د.ع)<input name="price" type="number" min="0" step="1" required></label><label>التكلفة (د.ع)<input name="cost" type="number" min="0" step="1" required></label><button class="btn full">إضافة المنتج</button></form><div class="tablewrap" id="productsTable"></div></div></section>
 <section class="view" id="orders"><h2>الطلبات</h2><div class="card stack"><p class="help">للنسخة الأولى: سجل طلب اختبار باسم مستعار. إضافة العملاء بأرقامهم وعناوينهم ستكون بعد تجهيز الخصوصية والتحقق من الحقول.</p><form id="orderForm" class="form"><label>اسم مستعار<input name="customer" required maxlength="100" placeholder="عميل اختبار 01"></label><label>المنتج<select name="product" id="productSelect" required></select></label><label>الكمية<input name="qty" type="number" min="1" step="1" required value="1"></label><label>التوصيل<input name="delivery" type="number" min="0" step="1" value="5000" required></label><label>الحالة<select name="status"><option value="pending">بانتظار التأكيد</option><option value="confirmed">مؤكد</option><option value="printing">قيد الطباعة</option><option value="shipped">بالطريق</option><option value="delivered">مكتمل</option><option value="cancelled">ملغي</option></select></label><button class="btn full">حفظ الطلب</button></form><div class="tablewrap" id="ordersTable"></div></div></section>
 <section class="view" id="expenses"><h2>المصاريف</h2><div class="card stack"><form id="expenseForm" class="form"><label>التصنيف<select name="category"><option>إعلانات</option><option>كهرباء</option><option>تغليف</option><option>فلمنت</option><option>أخرى</option></select></label><label>الوصف<input name="description" maxlength="100"></label><label>القيمة (د.ع)<input name="amount" type="number" min="0" step="1" required></label><button class="btn full">تسجيل مصروف</button></form><div class="tablewrap" id="expensesTable"></div></div></section>
-<section class="view" id="assistant"><div class="card stack"><h2>الإيجنت الذكي — تجربة حقيقية</h2><div class="notice">تجربة خاصة بالمدير: يقرأ أسماء المنتجات وأسعارها من Supabase ويرد باللهجة العراقية. لا يثبت طلبات ولا يرسل رسائل إلى إنستغرام.</div><div id="aiChat" class="chat" aria-live="polite"><div class="bubble bot">هلا بيك! جرب تسألني عن منتجات RavenLab وأسعارها.</div></div><form id="aiForm" class="chatrow"><input id="aiInput" maxlength="1000" required autocomplete="off" placeholder="مثلاً: عندكم ميداليات؟ وكم سعرها؟"><button type="submit" class="btn" id="aiSend">إرسال</button></form><p class="help">ملاحظة: هذا الاختبار لا يحفظ المحادثة. لا تدخل بيانات عملاء حقيقية هنا.</p></div></section>
-</section><footer class="foot">RavenLab AI v0.3 • Supabase Auth + Database • No Instagram connection</footer></main>
+<section class="view" id="knowledge">
+<div class="card stack"><h2>معرفة المنتجات والباقات</h2>
+<div class="notice">اختَر منتجاً أضفته في قسم المنتجات. أضف مواصفاته وأسعار باقاته؛ لا تُرسل بيانات زبائن في حقول المعرفة. جميع الأسعار بالدينار العراقي.</div>
+<label>المنتج<select id="knProduct"></select></label>
+<form id="knBase" class="stack"><label>نوع البيع<select id="knType"><option value="single">مفرد</option><option value="wholesale">جملة / باقات</option></select></label><button class="btn" type="submit">حفظ نوع المنتج</button></form>
+<form id="knDetails" class="stack"><h3>مواصفات المنتج</h3><div class="form"><label>الخامة<input name="material" maxlength="200"></label><label>الأبعاد<input name="dimensions" maxlength="200"></label><label>الألوان المتاحة<input name="available_colors" maxlength="300"></label><label>التخصيص<input name="customization" maxlength="500"></label><label>مدة الإنتاج<input name="production_time" maxlength="200"></label><label>التوصيل<input name="delivery_info" maxlength="300"></label><label class="full">العناية بالمنتج<input name="care_instructions" maxlength="600"></label><label class="full">تفاصيل إضافية<input name="additional_details" maxlength="1500"></label></div><button class="btn" type="submit">حفظ مواصفات المنتج</button></form>
+<form id="knVariant" class="form"><h3 class="full">إضافة خيار للمنتج (مثل وجهين / QR)</h3><label>اسم الخيار<input name="name" required maxlength="100"></label><label>وصف الخيار<input name="description" maxlength="300"></label><button class="btn full" type="submit">إضافة الخيار</button></form><div id="knVariantsList"></div>
+<form id="knPackage" class="form"><h3 class="full">إضافة باقة جملة</h3><label>نوع المنتج<select id="knPackageVariant" name="variant_id"><option value="">بدون خيار</option></select></label><label>الكمية<input name="quantity" type="number" min="1" step="1" required></label><label>سعر الباقة (د.ع)<input name="price_iqd" type="number" min="0" step="1" required></label><label>تكلفة الباقة (د.ع)<input name="cost_iqd" type="number" min="0" step="1" required></label><button class="btn full" type="submit">حفظ الباقة</button></form><div id="knPackagesList"></div>
+<form id="knFaq" class="stack"><h3>الأسئلة الشائعة</h3><label>سؤال متكرر<input name="question" required maxlength="300"></label><label>الإجابة المعتمدة<input name="answer" required maxlength="1200"></label><button class="btn" type="submit">إضافة إجابة معتمدة</button></form><div id="knFaqList"></div>
+<p id="knStatus" class="help" aria-live="polite"></p></div></section><section class="view" id="assistant"><div class="card stack"><h2>الإيجنت الذكي — تجربة حقيقية</h2><div class="notice">تجربة خاصة بالمدير: يقرأ أسماء المنتجات وأسعارها من Supabase ويرد باللهجة العراقية. لا يثبت طلبات ولا يرسل رسائل إلى إنستغرام.</div><div id="aiChat" class="chat" aria-live="polite"><div class="bubble bot">هلا بيك! جرب تسألني عن منتجات RavenLab وأسعارها.</div></div><form id="aiForm" class="chatrow"><input id="aiInput" maxlength="1000" required autocomplete="off" placeholder="مثلاً: عندكم ميداليات؟ وكم سعرها؟"><button type="submit" class="btn" id="aiSend">إرسال</button></form><p class="help">ملاحظة: هذا الاختبار لا يحفظ المحادثة. لا تدخل بيانات عملاء حقيقية هنا.</p></div></section>
+</section><footer class="foot">RavenLab AI v0.5 • Supabase Auth + Database • No Instagram connection</footer></main>
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const $=id=>document.getElementById(id), money=n=>Math.round(Number(n)||0).toLocaleString('en-US')+' د.ع';
@@ -50,5 +59,90 @@ $('aiForm').addEventListener('submit',async e=>{
   }catch(err){chatBubble('تعذر الرد: '+err.message,'bot')}
   finally{btn.disabled=false;input.focus()}
 });
+
+// RavenLab v0.5: manager-only product knowledge editor.
+let currentKnowledgeProduct = null;
+function knStatus(text, failed=false) {
+  const node=$('knStatus'); node.textContent=text; node.style.color=failed?'#ffbdba':'#c9dfa8';
+}
+function knSelected() { const v=Number($('knProduct').value);return state.products.find(p=>Number(p.id)===v); }
+function knSelectOptions(sel, items, placeholder) {
+  const value=sel.value;
+  sel.replaceChildren();
+  if(placeholder!==undefined){ const opt=el('option',placeholder); opt.value='';sel.append(opt); }
+  items.forEach(p=>{const opt=el('option',p.name);opt.value=String(p.id);sel.append(opt);});
+  if([...sel.options].some(x=>x.value===value))sel.value=value;
+}
+async function loadKnowledgeUI(){
+  knSelectOptions($('knProduct'),state.products,'اختر منتجاً');
+  if (!knSelected()) {knStatus('أضف منتجاً من تبويب المنتجات ثم اختره هنا.');return;}
+  await loadKnowledgeProduct();
+}
+async function loadKnowledgeProduct(){
+  const product=knSelected(); if(!product)return;
+  const id=product.id;
+  currentKnowledgeProduct=id; knStatus('جارٍ تحميل البيانات...');
+  try {
+    const results=await Promise.all([
+      sb.from('product_knowledge').select('*').eq('product_id',id).maybeSingle(),
+      sb.from('product_variants').select('*').eq('product_id',id).order('id'),
+      sb.from('product_packages').select('*').eq('product_id',id).order('quantity'),
+      sb.from('product_faqs').select('*').eq('product_id',id).order('id')
+    ]);
+    const err=results.find(r=>r.error)?.error;if(err)throw err;
+    if(currentKnowledgeProduct!==id)return;
+    $('knType').value=product.product_type==='wholesale'?'wholesale':'single';
+    const knowledge=results[0].data||{};
+    for(const fld of $('knDetails').elements){if(fld.name)fld.value=knowledge[fld.name]||'';}
+    const variants=results[1].data||[],packages=results[2].data||[],faqs=results[3].data||[];
+    const pv=$('knPackageVariant'); const previous=pv.value;
+    pv.replaceChildren();const blank=el('option','بدون خيار');blank.value='';pv.append(blank);
+    for(const v of variants){const o=el('option',v.name);o.value=String(v.id);pv.append(o);}
+    if([...pv.options].some(o=>o.value===previous))pv.value=previous;
+    table('knVariantsList',['الخيار','الوصف'],variants.map(v=>[v.name,v.description||'—']));
+    table('knPackagesList',['الخيار','الكمية','سعر الباقة','تكلفتها','الحالة'],packages.map(p=>[
+      variants.find(v=>v.id===p.variant_id)?.name||(p.variant_id?'خيار غير معروف':'بدون خيار'),p.quantity,money(p.price_iqd),money(p.cost_iqd),p.active?'فعال':'غير فعال'
+    ]));
+    table('knFaqList',['السؤال','الجواب','الاعتماد'],faqs.map(f=>[f.question,f.answer,f.approved?'معتمد':'بانتظار المراجعة']));
+    knStatus('تم تحميل معلومات المنتج.');
+  }catch(e){knStatus('خطأ في قراءة معرفة المنتجات: '+e.message,true);}
+}
+function knRequire(){const p=knSelected();if(!p)throw Error('اختر منتجاً أولاً');return p;}
+async function knSave(form, action) {
+  form.preventDefault();const btn=form.target.querySelector('button[type=submit]');if(btn)btn.disabled=true;
+  try {const product=knRequire();await action(product,new FormData(form.target));await refresh(); await loadKnowledgeUI();knStatus('تم الحفظ بنجاح.');}
+  catch(e){knStatus('تعذر الحفظ: '+e.message,true)}finally{if(btn)btn.disabled=false;}
+}
+$('knProduct').addEventListener('change',loadKnowledgeProduct);
+$('knBase').addEventListener('submit',e=>knSave(e,async product=>{
+  const {error}=await sb.from('products').update({product_type:$('knType').value}).eq('id',product.id);
+  if(error)throw error;
+}));
+$('knDetails').addEventListener('submit',e=>knSave(e,async(product,f)=>{
+  const payload={product_id:product.id,updated_at:new Date().toISOString()};
+  for(const key of ['material','dimensions','available_colors','customization','production_time','delivery_info','care_instructions','additional_details'])payload[key]=String(f.get(key)||'').trim();
+  const {error}=await sb.from('product_knowledge').upsert(payload,{onConflict:'product_id'});if(error)throw error;
+}));
+$('knVariant').addEventListener('submit',e=>knSave(e,async(product,f)=>{
+  const name=String(f.get('name')||'').trim();if(!name)throw Error('أدخل اسم الخيار');
+  const {error}=await sb.from('product_variants').insert({product_id:product.id,name,description:String(f.get('description')||'').trim()});if(error)throw error;
+  e.target.reset();
+}));
+$('knPackage').addEventListener('submit',e=>knSave(e,async(product,f)=>{
+  const quantity=Number(f.get('quantity')),price_iqd=Number(f.get('price_iqd')),cost_iqd=Number(f.get('cost_iqd'));
+  if(!Number.isInteger(quantity)||quantity<=0||!Number.isFinite(price_iqd)||!Number.isFinite(cost_iqd)||price_iqd<0||cost_iqd<0)throw Error('تحقق من قيم الباقة');
+  const selected=String(f.get('variant_id')||'');
+  if(selected && ![...$('knPackageVariant').options].some(o=>o.value===selected))throw Error('خيار غير صالح');
+  const {error}=await sb.from('product_packages').insert({product_id:product.id,variant_id:selected?Number(selected):null,quantity,price_iqd,cost_iqd});if(error)throw error;
+  e.target.reset();
+}));
+$('knFaq').addEventListener('submit',e=>knSave(e,async(product,f)=>{
+  const question=String(f.get('question')||'').trim(),answer=String(f.get('answer')||'').trim();
+  if(!question||!answer)throw Error('السؤال والجواب مطلوبان');
+  const {error}=await sb.from('product_faqs').insert({product_id:product.id,question,answer,approved:true});if(error)throw error;
+  e.target.reset();
+}));
+$('tabs').addEventListener('click',e=>{if(e.target.closest('[data-tab="knowledge"]'))loadKnowledgeUI();});
+
 init();
 </script></body></html>
