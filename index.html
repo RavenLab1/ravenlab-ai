@@ -13,7 +13,7 @@
 <nav class="tabs" id="tabs"><button class="tab active" data-tab="overview">نظرة عامة</button><button class="tab" data-tab="products">المنتجات</button><button class="tab" data-tab="orders">الطلبات</button><button class="tab" data-tab="expenses">المصاريف</button><button class="tab" data-tab="knowledge">معرفة المنتجات</button><button class="tab" data-tab="insights">تحليل المحادثات</button><button class="tab" data-tab="assistant">الإيجنت</button></nav>
 <section class="view active" id="overview"><div class="metrics" id="metrics"></div><div class="grid"><div class="card"><h2>أحدث الطلبات</h2><div class="tablewrap" id="latest"></div></div><div class="card"><h2>ملاحظات</h2><div id="alerts" class="stack"></div></div></div></section>
 <section class="view" id="products"><h2>المنتجات</h2><div class="card stack"><form id="productForm" class="form"><label>اسم المنتج<input name="name" maxlength="100" required></label><label>السعر (د.ع)<input name="price" type="number" min="0" step="1" required></label><label>التكلفة (د.ع)<input name="cost" type="number" min="0" step="1" required></label><button class="btn full">إضافة المنتج</button></form><div class="tablewrap" id="productsTable"></div></div></section>
-<section class="view" id="orders"><h2>الطلبات</h2><div class="card stack saved-drafts"><div class="drafts-toolbar"><h2>مسودات الإيجنت المحفوظة</h2><button type="button" id="reloadSavedDrafts" class="btn ghost">تحديث المسودات</button></div><div class="notice">مسودات اختبار للمراجعة فقط. لا تُؤكد أي طلب ولا يُعتمد السعر عند الحفظ.</div><div class="review-endpoint"><label>رابط وظيفة المراجعة (اسم Endpoint فقط)<input id="reviewEndpoint" autocomplete="off" spellcheck="false" placeholder="ravenlab-order-review"></label><button type="button" id="saveReviewEndpoint" class="btn ghost">حفظ الرابط</button><small>إذا ظهر اسم مختلف في Supabase → Edge Functions → Overview فاكتب آخر جزء من الرابط هنا. لا تضع أي مفاتيح أو رموز جلسات.</small></div><div class="tablewrap" id="savedDraftsTable"><p class="empty">افتح التبويب لعرض المسودات.</p></div><div id="reviewEditor" class="review-editor hidden"><h3 id="reviewTitle">تعديل مسودة</h3><p class="help">أي تغيير يعيد حساب السعر من Supabase بواسطة وظيفة المراجعة.</p><form id="reviewForm" class="form"><label>الاسم المرجعي<input id="reviewLabel" maxlength="150"></label><label>المنتج<select id="reviewProduct"><option value="">غير محدد</option></select></label><label>الخيار<select id="reviewVariant"><option value="">غير محدد</option></select></label><label>الكمية<input id="reviewQuantity" type="number" min="1" max="100000" step="1" placeholder="الكمية"></label><label>الألوان<input id="reviewColors" maxlength="500"></label><label>ملاحظات التخصيص<textarea id="reviewNotes" maxlength="500" rows="3"></textarea></label><label>حالة التصميم<select id="reviewDesign"><option value="pending">بانتظار التصميم / المراجعة</option><option value="received">تم الاستلام</option><option value="approved">تمت مراجعة التصميم</option><option value="not_required">غير مطلوب</option></select></label><div class="review-buttons"><button type="submit" class="btn" id="reviewSave">حفظ التعديلات</button><button type="button" class="btn ghost" id="reviewCancel">إلغاء</button></div></form></div><p id="savedDraftsMessage" class="help" aria-live="polite"></p></div><div class="card stack"><p class="help">للنسخة الأولى: سجل طلب اختبار باسم مستعار. إضافة العملاء بأرقامهم وعناوينهم ستكون بعد تجهيز الخصوصية والتحقق من الحقول.</p><form id="orderForm" class="form"><label>اسم مستعار<input name="customer" required maxlength="100" placeholder="عميل اختبار 01"></label><label>المنتج<select name="product" id="productSelect" required></select></label><label>الكمية<input name="qty" type="number" min="1" step="1" required value="1"></label><label>التوصيل<input name="delivery" type="number" min="0" step="1" value="5000" required></label><label>الحالة<select name="status"><option value="pending">بانتظار التأكيد</option><option value="confirmed">مؤكد</option><option value="printing">قيد الطباعة</option><option value="shipped">بالطريق</option><option value="delivered">مكتمل</option><option value="cancelled">ملغي</option></select></label><button class="btn full">حفظ الطلب</button></form><div class="tablewrap" id="ordersTable"></div></div></section>
+<section class="view" id="orders"><h2>الطلبات</h2><div class="card stack saved-drafts"><div class="drafts-toolbar"><h2>مسودات الإيجنت المحفوظة</h2><button type="button" id="reloadSavedDrafts" class="btn ghost">تحديث المسودات</button></div><div class="notice">المسودات لا تتحول إلى طلب رسمي إلا بعد موافقة المدير والتحقق من سعر المنتج والباقة والتصميم بواسطة Supabase. لا يتم خصم المخزون أو إرسال رسائل تلقائياً.</div><div class="review-endpoint"><label>رابط وظيفة المراجعة (اسم Endpoint فقط)<input id="reviewEndpoint" autocomplete="off" spellcheck="false" placeholder="ravenlab-order-review"></label><button type="button" id="saveReviewEndpoint" class="btn ghost">حفظ الرابط</button><small>إذا ظهر اسم مختلف في Supabase → Edge Functions → Overview فاكتب آخر جزء من الرابط هنا. لا تضع أي مفاتيح أو رموز جلسات.</small></div><div class="tablewrap" id="savedDraftsTable"><p class="empty">افتح التبويب لعرض المسودات.</p></div><div id="reviewEditor" class="review-editor hidden"><h3 id="reviewTitle">تعديل مسودة</h3><p class="help">أي تغيير يعيد حساب السعر من Supabase بواسطة وظيفة المراجعة.</p><form id="reviewForm" class="form"><label>الاسم المرجعي<input id="reviewLabel" maxlength="150"></label><label>المنتج<select id="reviewProduct"><option value="">غير محدد</option></select></label><label>الخيار<select id="reviewVariant"><option value="">غير محدد</option></select></label><label>الكمية<input id="reviewQuantity" type="number" min="1" max="100000" step="1" placeholder="الكمية"></label><label>الألوان<input id="reviewColors" maxlength="500"></label><label>ملاحظات التخصيص<textarea id="reviewNotes" maxlength="500" rows="3"></textarea></label><label>حالة التصميم<select id="reviewDesign"><option value="pending">بانتظار التصميم / المراجعة</option><option value="received">تم الاستلام</option><option value="approved">تمت مراجعة التصميم</option><option value="not_required">غير مطلوب</option></select></label><div class="review-buttons"><button type="submit" class="btn" id="reviewSave">حفظ التعديلات</button><button type="button" class="btn ghost" id="reviewCancel">إلغاء</button></div></form></div><p id="savedDraftsMessage" class="help" aria-live="polite"></p></div><div class="card stack"><p class="help">للنسخة الأولى: سجل طلب اختبار باسم مستعار. إضافة العملاء بأرقامهم وعناوينهم ستكون بعد تجهيز الخصوصية والتحقق من الحقول.</p><form id="orderForm" class="form"><label>اسم مستعار<input name="customer" required maxlength="100" placeholder="عميل اختبار 01"></label><label>المنتج<select name="product" id="productSelect" required></select></label><label>الكمية<input name="qty" type="number" min="1" step="1" required value="1"></label><label>التوصيل<input name="delivery" type="number" min="0" step="1" value="5000" required></label><label>الحالة<select name="status"><option value="pending">بانتظار التأكيد</option><option value="confirmed">مؤكد</option><option value="printing">قيد الطباعة</option><option value="shipped">بالطريق</option><option value="delivered">مكتمل</option><option value="cancelled">ملغي</option></select></label><button class="btn full">حفظ الطلب</button></form><div class="tablewrap" id="ordersTable"></div></div></section>
 <section class="view" id="expenses"><h2>المصاريف</h2><div class="card stack"><form id="expenseForm" class="form"><label>التصنيف<select name="category"><option>إعلانات</option><option>كهرباء</option><option>تغليف</option><option>فلمنت</option><option>أخرى</option></select></label><label>الوصف<input name="description" maxlength="100"></label><label>القيمة (د.ع)<input name="amount" type="number" min="0" step="1" required></label><button class="btn full">تسجيل مصروف</button></form><div class="tablewrap" id="expensesTable"></div></div></section>
 <section class="view" id="knowledge">
 <div class="card stack"><h2>معرفة المنتجات والباقات</h2>
@@ -48,7 +48,7 @@
   </div>
   <p id="draftHint" class="help" aria-live="polite"></p>
   <p class="help">الذاكرة مؤقتة داخل الصفحة فقط (آخر 16 رسالة). تختفي عند التحديث أو الضغط على محادثة جديدة. لا تدخل بيانات عملاء حقيقية هنا.</p></div></section>
-</section><footer class="foot">RavenLab AI v0.9 • Supabase Auth + Database • No Instagram connection</footer></main>
+</section><footer class="foot">RavenLab AI v1.0 • Supabase Auth + Database • No Instagram connection</footer></main>
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const $=id=>document.getElementById(id), money=n=>Math.round(Number(n)||0).toLocaleString('en-US')+' د.ع';
@@ -59,7 +59,7 @@ const show=id=>['setup','auth','app'].forEach(x=>$(x).classList.toggle('hidden',
 function msg(t,error=false){const node=$('notice');node.textContent=t;node.className='status'+(error?' error':'')}
 function table(target,headers,rows){let t=el('table'),head=el('thead'),r=el('tr');headers.forEach(x=>r.append(el('th',x)));head.append(r);t.append(head);let body=el('tbody');rows.forEach(items=>{let tr=el('tr');items.forEach(x=>tr.append(el('td',x)));body.append(tr)});t.append(body);$(target).replaceChildren(rows.length?t:el('p','لا توجد بيانات بعد','empty'))}
 function render(){const {products,orders,expenses}=state;let live=orders.filter(o=>o.status!=='cancelled');let income=0,cost=0;for(let o of live){for(let it of o.order_items||[]){income+=Number(it.quantity)*Number(it.unit_price_iqd);cost+=Number(it.quantity)*Number(it.unit_cost_iqd)}}let ex=expenses.reduce((s,e)=>s+Number(e.amount_iqd),0);let metrics=[['قيمة الطلبات غير الملغاة',money(income)],['هامش تقديري',money(income-cost)],['هامش بعد المصاريف',money(income-cost-ex)],['عدد الطلبات',live.length]];$('metrics').replaceChildren(...metrics.map(([k,v])=>{let c=el('div',undefined,'card');c.append(el('small',k),el('div',v,'number'));return c}));let desc=o=>(o.order_items||[]).map(it=>products.find(p=>p.id===it.product_id)?.name||'منتج').join('، ');table('latest',['رقم الطلب','المنتج','الحالة'],orders.slice(0,5).map(o=>['#'+o.id,desc(o),statuses[o.status]||o.status]));$('alerts').replaceChildren(el('p',`الطلبات المعلقة: ${orders.filter(o=>o.status==='pending').length}`),el('p','الأرقام تقديرية ولا تمثل الأموال المحصّلة. تكلفة التوصيل غير محسوبة كربح.'));table('productsTable',['المنتج','السعر','التكلفة'],products.map(p=>[p.name,money(p.price_iqd),money(p.cost_iqd)]));table('ordersTable',['الرقم','المنتج','الكمية','القيمة مع التوصيل','الحالة'],orders.map(o=>['#'+o.id,desc(o),(o.order_items||[]).reduce((s,it)=>s+it.quantity,0),money((o.order_items||[]).reduce((s,it)=>s+it.quantity*Number(it.unit_price_iqd),0)+Number(o.delivery_fee_iqd)),statuses[o.status]||o.status]));table('expensesTable',['الفئة','الوصف','القيمة'],expenses.map(e=>[e.category,e.description||'—',money(e.amount_iqd)]));let s=$('productSelect'),old=s.value;s.replaceChildren(...products.map(p=>{let opt=el('option',p.name);opt.value=p.id;return opt}));if(products.some(p=>String(p.id)===old))s.value=old;}
-async function refresh(){const reqs=[sb.from('products').select('*').order('id',{ascending:false}),sb.from('orders').select('id,status,delivery_fee_iqd,order_items(product_id,quantity,unit_price_iqd,unit_cost_iqd)').order('id',{ascending:false}),sb.from('expenses').select('*').order('id',{ascending:false})];let results=await Promise.all(reqs);let err=results.find(x=>x.error)?.error;if(err)throw err;state={products:results[0].data,orders:results[1].data,expenses:results[2].data};render();msg('✓ متصل بقاعدة بيانات Supabase — لا توجد أي رسالة إنستغرام حالياً')}
+async function refresh(){const reqs=[sb.from('products').select('*').order('id',{ascending:false}),sb.from('orders').select('id,status,source_draft_id,delivery_fee_iqd,order_items(product_id,quantity,unit_price_iqd,unit_cost_iqd)').order('id',{ascending:false}),sb.from('expenses').select('*').order('id',{ascending:false})];let results=await Promise.all(reqs);let err=results.find(x=>x.error)?.error;if(err)throw err;state={products:results[0].data,orders:results[1].data,expenses:results[2].data};render();msg('✓ متصل بقاعدة بيانات Supabase — لا توجد أي رسالة إنستغرام حالياً')}
 async function authenticate(){let {data:{user},error}=await sb.auth.getUser();if(error||!user){show('auth');return}let adm=await sb.from('admin_users').select('user_id').eq('user_id',user.id).maybeSingle();if(adm.error||!adm.data){await sb.auth.signOut();show('auth');alert('هذا الحساب ليس ضمن المدراء المصرح لهم.');return}show('app');$('logout').classList.remove('hidden');try{await refresh()}catch(e){msg('خطأ في قراءة قاعدة البيانات: '+e.message,true)}}
 function connect(url,key){sb=createClient(url,key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}})}
 function init(){let c;try{c=JSON.parse(localStorage.getItem(CFG))}catch{}if(!c?.url||!c?.key){show('setup');return}try{connect(c.url,c.key);authenticate()}catch(e){show('setup');alert('إعداد اتصال غير صالح: '+e.message)}}
@@ -177,6 +177,37 @@ async function reviewCall(action,body={}){
   if(data?.error)throw Error(data.error+(data.missing_fields?.length?' — '+data.missing_fields.join('، '):''));
   return data;
 }
+// v1.0: authorized conversion RPC. This is separate from review approval.
+let convertingDraftId=null;
+function linkedOrderForDraft(draftId){
+  return state.orders.find(o=>o.source_draft_id!==null && o.source_draft_id!==undefined && String(o.source_draft_id)===String(draftId))||null;
+}
+async function convertApprovedDraft(d){
+  if(reviewBusy||convertingDraftId!==null)return;
+  if(d.status!=='approved'){
+    reviewMessage('يجب اعتماد المسودة من المدير أولاً.',true);return;
+  }
+  const existing=linkedOrderForDraft(d.id);
+  if(existing){reviewMessage('هذه المسودة مرتبطة بالفعل بالطلب الرسمي #'+existing.id);return;}
+  if(!confirm('تحويل المسودة المعتمدة #'+d.id+' إلى طلب رسمي؟\n\nسيعيد Supabase فحص السعر والباقة والتصميم، وسيُنشئ الطلب وبند البيع مرة واحدة فقط. لن تُخصم مواد أو تُرسل رسائل تلقائياً.'))return;
+  convertingDraftId=d.id;
+  reviewMessage('جار التحقق وإنشاء الطلب الرسمي من المسودة #'+d.id+'...');
+  renderReviewDrafts(reviewDrafts);
+  try{
+    const {data,error}=await sb.rpc('convert_approved_draft',{p_draft_id:Number(d.id)});
+    if(error)throw error;
+    if(!Number.isSafeInteger(Number(data))||Number(data)<=0)throw Error('لم يصل رقم طلب صحيح من Supabase');
+    const officialOrderId=Number(data);
+    await refresh();
+    await loadSavedDrafts();
+    reviewMessage('✓ تم إنشاء/تحديد الطلب الرسمي #'+officialOrderId+' من المسودة #'+d.id+'. راجعه في جدول الطلبات أدناه.');
+  }catch(err){
+    reviewMessage('تعذر التحويل: '+(err?.message||String(err))+' — لم يتم تأكيد إنشاء طلب جديد.',true);
+  }finally{
+    convertingDraftId=null;
+    renderReviewDrafts(reviewDrafts);
+  }
+}
 function reviewButton(label,action,draft){
   const b=el('button',label,'btn ghost');b.type='button';b.dataset.action=action;b.dataset.draftId=draft.id;
   if(['approved','rejected'].includes(draft.status))b.disabled=true;
@@ -201,7 +232,15 @@ function renderReviewDrafts(drafts){
       if(d.status==='pending_review'){
         buttons.append(reviewButton('موافقة','approve',d));buttons.append(reviewButton('رفض','reject',d));
       }
-    }else buttons.append(el('span','مراجعة مكتملة'));
+    }else if(d.status==='approved'){
+      const existingOrder=linkedOrderForDraft(d.id);
+      if(existingOrder){buttons.append(el('span','طلب رسمي #'+existingOrder.id,'review-approved'))}
+      else{
+        const convertButton=reviewButton('تحويل إلى طلب رسمي','convert',d);
+        convertButton.disabled=convertingDraftId!==null||reviewBusy;
+        buttons.append(convertButton);
+      }
+    }else buttons.append(el('span','مراجعة مرفوضة'));
     actions.append(buttons);r.append(actions);body.append(r);
   }
   t.append(body);root.append(t);
@@ -268,6 +307,7 @@ $('savedDraftsTable').addEventListener('click',async e=>{
   const b=e.target.closest('button[data-action]');if(!b||reviewBusy)return;
   const d=reviewDrafts.find(x=>String(x.id)===b.dataset.draftId);if(!d)return;
   if(b.dataset.action==='edit'){await openReviewEditor(d);return;}
+  if(b.dataset.action==='convert'){await convertApprovedDraft(d);return;}
   const action=b.dataset.action;
   let confirmText=action==='submit'?'إرسال المسودة #'+d.id+' إلى قائمة مراجعة المدير؟':
     action==='approve'?'اعتماد المسودة #'+d.id+' داخلياً؟ لن يُنشأ طلب فعلي ولن تُخصم مواد أو تُرسل رسائل. تأكد من التصميم والمواصفات والمخزون.':
