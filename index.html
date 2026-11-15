@@ -107,7 +107,7 @@ function displayDraft(draft){
 async function extractDraft(message,history,version){
   $('draftHint').textContent='جار فحص المحادثة لاستخراج مسودة الطلب...';
   try{
-    const {data,error}=await sb.functions.invoke('ravenlab-order-draft',{body:{message,history}});
+    const {data,error}=await sb.functions.invoke('dynamic-action',{body:{message,history}});
     if(version!==draftGeneration)return;
     if(error){
       let detail=error.message;
