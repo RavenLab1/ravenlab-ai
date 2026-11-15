@@ -1,14 +1,14 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RavenLab AI — Dashboard v0.6</title><style>
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RavenLab AI — Dashboard v0.7</title><style>
 :root{--bg:#0c100d;--panel:#151c16;--panel2:#1c261d;--line:#2b3a2d;--accent:#a6ee5a;--muted:#a1ad9f;--text:#f1f6ed;--danger:#f6a19b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,'Segoe UI',sans-serif;line-height:1.6}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:1320px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:25px}.logo{display:flex;align-items:center;gap:12px}.mark{background:var(--accent);color:#0f170c;width:45px;height:45px;border-radius:13px;display:grid;place-items:center;font-size:24px;font-weight:bold}.sub,.muted{color:var(--muted)}h1,h2,h3,p{margin:0}h1{font-size:23px}h2{font-size:18px;margin-bottom:12px}.pill{border:1px solid #466138;background:#22311d;color:#c7f4a2;border-radius:100px;padding:6px 12px;font-size:12px}.badge{border-radius:8px;background:#293627;color:#c9efaf;padding:4px 9px;font-size:12px;display:inline-block}.warning{background:#3b3021;color:#f6d49b}.tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:23px}.tab{background:#1b251c;border:1px solid var(--line);color:#dce6d9;border-radius:10px;padding:10px 17px}.tab.active{background:var(--accent);color:#18200e;font-weight:bold;border-color:var(--accent)}.view{display:none}.view.active{display:block}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:0 0 20px}.card{border:1px solid var(--line);background:var(--panel);border-radius:15px;padding:18px}.card small{color:var(--muted)}.number{font-size:25px;font-weight:bold;margin-top:5px;direction:ltr;text-align:right}.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}.panelhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px;flex-wrap:wrap}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:right;min-width:600px}th,td{padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:normal}tr:last-child td{border-bottom:0}input,select{width:100%;background:#0c130f;border:1px solid #364839;border-radius:9px;color:var(--text);padding:11px;min-width:0}input:focus,select:focus{outline:2px solid #78ae4a}label{display:grid;gap:5px;font-size:13px;color:#d1decf}.form{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.btn{background:var(--accent);color:#142008;border:0;border-radius:10px;padding:11px 17px;font-weight:bold}.btn.ghost{background:#263327;color:var(--text);border:1px solid var(--line)}.btn.danger{background:#3e2929;color:#ffbfbf}.full{grid-column:1/-1}.stack{display:grid;gap:13px}.notice{border:1px dashed #536b44;background:#1a2818;padding:12px;border-radius:10px;color:#c9dfa8;font-size:13px;margin-bottom:17px}.chat{border:1px solid var(--line);border-radius:12px;background:#111712;min-height:280px;max-height:440px;overflow:auto;padding:15px;display:flex;flex-direction:column;gap:12px}.bubble{padding:12px 14px;border-radius:12px;max-width:83%;white-space:pre-wrap;font-size:14px}.bubble.user{background:#28402c;align-self:flex-start}.bubble.bot{background:#242b25;align-self:flex-end}.chatrow{display:flex;gap:9px;margin-top:12px}.chatrow input{flex:1}.chatrow button{white-space:nowrap}.foot{color:var(--muted);font-size:12px;margin:24px 0 8px;text-align:center}.empty{color:var(--muted);padding:22px 0}.tag{color:#b5df8d}.headline{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px}ul{margin:0;padding-right:21px}.help{font-size:12px;color:var(--muted);margin-top:8px}@media(max-width:850px){.metrics{grid-template-columns:repeat(2,1fr)}.grid,.form{grid-template-columns:1fr}.app{padding:12px}.card{padding:13px}h1{font-size:20px}.number{font-size:20px}}@media(max-width:400px){.metrics{grid-template-columns:1fr 1fr}.chatrow{flex-wrap:wrap}.chatrow button{width:100%}}
 
 .auth-wrap{max-width:440px;margin:8vh auto}.hidden{display:none!important}.status{padding:10px;border-radius:9px;background:#1b291c;margin:10px 0;color:#d4edc3}.error{background:#382626;color:#ffbdba}.config{background:#2b291b;color:#f9daa4}.top-actions{display:flex;align-items:center;gap:10px}.btn:disabled{opacity:.5;cursor:not-allowed}
 </style></head><body>
 <main class="app">
-<header class="top"><div class="logo"><div class="mark">R</div><div><h1>RavenLab AI</h1><div class="sub">لوحة إدارة متصلة بـSupabase • v0.6</div></div></div><div class="top-actions"><span class="pill">● غير مرتبط بإنستغرام بعد</span><button id="logout" class="btn ghost hidden">تسجيل خروج</button></div></header>
+<header class="top"><div class="logo"><div class="mark">R</div><div><h1>RavenLab AI</h1><div class="sub">لوحة إدارة متصلة بـSupabase • v0.7</div></div></div><div class="top-actions"><span class="pill">● غير مرتبط بإنستغرام بعد</span><button id="logout" class="btn ghost hidden">تسجيل خروج</button></div></header>
 <section id="setup" class="auth-wrap hidden"><div class="card stack"><h2>إعداد اتصال Supabase</h2><div class="notice">أدخل فقط Project URL وPublishable Key أو مفتاح anon العام. لا تدخل service_role أو secret key إطلاقاً.</div><form id="configForm" class="stack"><label>Project URL<input id="sbUrl" type="url" required placeholder="https://xxxxx.supabase.co"></label><label>Publishable / anon key<input id="sbKey" required placeholder="sb_publishable_... أو eyJ..."></label><button class="btn">حفظ الاتصال بهذا المتصفح</button></form><p class="help">يمكن لاحقاً وضع القيم العامة في ملف config.js. تحفظ إعدادات الاتصال العامة في هذا المتصفح فقط.</p></div></section>
 <section id="auth" class="auth-wrap hidden"><div class="card stack"><h2>تسجيل دخول المدير</h2><div class="notice">استخدم البريد وكلمة المرور اللذين أنشأتهما في Supabase Authentication.</div><form id="loginForm" class="stack"><label>البريد الإلكتروني<input type="email" name="email" autocomplete="username" required></label><label>كلمة المرور<input type="password" name="password" autocomplete="current-password" required></label><button class="btn" type="submit">تسجيل الدخول</button></form><button id="changeConfig" class="btn ghost" type="button">تعديل اتصال Supabase</button></div></section>
 <section id="app" class="hidden"><div id="notice" class="status">جار التحميل...</div>
-<nav class="tabs" id="tabs"><button class="tab active" data-tab="overview">نظرة عامة</button><button class="tab" data-tab="products">المنتجات</button><button class="tab" data-tab="orders">الطلبات</button><button class="tab" data-tab="expenses">المصاريف</button><button class="tab" data-tab="knowledge">معرفة المنتجات</button><button class="tab" data-tab="assistant">الإيجنت</button></nav>
+<nav class="tabs" id="tabs"><button class="tab active" data-tab="overview">نظرة عامة</button><button class="tab" data-tab="products">المنتجات</button><button class="tab" data-tab="orders">الطلبات</button><button class="tab" data-tab="expenses">المصاريف</button><button class="tab" data-tab="knowledge">معرفة المنتجات</button><button class="tab" data-tab="insights">تحليل المحادثات</button><button class="tab" data-tab="assistant">الإيجنت</button></nav>
 <section class="view active" id="overview"><div class="metrics" id="metrics"></div><div class="grid"><div class="card"><h2>أحدث الطلبات</h2><div class="tablewrap" id="latest"></div></div><div class="card"><h2>ملاحظات</h2><div id="alerts" class="stack"></div></div></div></section>
 <section class="view" id="products"><h2>المنتجات</h2><div class="card stack"><form id="productForm" class="form"><label>اسم المنتج<input name="name" maxlength="100" required></label><label>السعر (د.ع)<input name="price" type="number" min="0" step="1" required></label><label>التكلفة (د.ع)<input name="cost" type="number" min="0" step="1" required></label><button class="btn full">إضافة المنتج</button></form><div class="tablewrap" id="productsTable"></div></div></section>
 <section class="view" id="orders"><h2>الطلبات</h2><div class="card stack"><p class="help">للنسخة الأولى: سجل طلب اختبار باسم مستعار. إضافة العملاء بأرقامهم وعناوينهم ستكون بعد تجهيز الخصوصية والتحقق من الحقول.</p><form id="orderForm" class="form"><label>اسم مستعار<input name="customer" required maxlength="100" placeholder="عميل اختبار 01"></label><label>المنتج<select name="product" id="productSelect" required></select></label><label>الكمية<input name="qty" type="number" min="1" step="1" required value="1"></label><label>التوصيل<input name="delivery" type="number" min="0" step="1" value="5000" required></label><label>الحالة<select name="status"><option value="pending">بانتظار التأكيد</option><option value="confirmed">مؤكد</option><option value="printing">قيد الطباعة</option><option value="shipped">بالطريق</option><option value="delivered">مكتمل</option><option value="cancelled">ملغي</option></select></label><button class="btn full">حفظ الطلب</button></form><div class="tablewrap" id="ordersTable"></div></div></section>
@@ -22,8 +22,23 @@
 <form id="knVariant" class="form"><h3 class="full">إضافة خيار للمنتج (مثل وجهين / QR)</h3><label>اسم الخيار<input name="name" required maxlength="100"></label><label>وصف الخيار<input name="description" maxlength="300"></label><button class="btn full" type="submit">إضافة الخيار</button></form><div id="knVariantsList"></div>
 <form id="knPackage" class="form"><h3 class="full">إضافة باقة جملة</h3><label>نوع المنتج<select id="knPackageVariant" name="variant_id"><option value="">بدون خيار</option></select></label><label>الكمية<input name="quantity" type="number" min="1" step="1" required></label><label>سعر الباقة (د.ع)<input name="price_iqd" type="number" min="0" step="1" required></label><label>تكلفة الباقة (د.ع)<input name="cost_iqd" type="number" min="0" step="1" required></label><button class="btn full" type="submit">حفظ الباقة</button></form><div id="knPackagesList"></div>
 <form id="knFaq" class="stack"><h3>الأسئلة الشائعة</h3><label>سؤال متكرر<input name="question" required maxlength="300"></label><label>الإجابة المعتمدة<input name="answer" required maxlength="1200"></label><button class="btn" type="submit">إضافة إجابة معتمدة</button></form><div id="knFaqList"></div>
-<p id="knStatus" class="help" aria-live="polite"></p></div></section><section class="view" id="assistant"><div class="card stack"><div class="panelhead"><h2>الإيجنت الذكي — ذاكرة المحادثة</h2><button type="button" id="aiNewChat" class="btn ghost">محادثة جديدة</button></div><div class="notice">تجربة خاصة بالمدير: يقرأ أسماء المنتجات وأسعارها من Supabase ويرد باللهجة العراقية. لا يثبت طلبات ولا يرسل رسائل إلى إنستغرام.</div><div id="aiChat" class="chat" aria-live="polite"><div class="bubble bot">هلا بيك! جرب تسألني عن منتجات RavenLab وأسعارها.</div></div><form id="aiForm" class="chatrow"><input id="aiInput" maxlength="1000" required autocomplete="off" placeholder="مثلاً: عندكم ميداليات؟ وكم سعرها؟"><button type="submit" class="btn" id="aiSend">إرسال</button></form><p class="help">الذاكرة مؤقتة داخل الصفحة فقط (آخر 16 رسالة). تختفي عند التحديث أو الضغط على محادثة جديدة. لا تدخل بيانات عملاء حقيقية هنا.</p></div></section>
-</section><footer class="foot">RavenLab AI v0.6 • Supabase Auth + Database • No Instagram connection</footer></main>
+<p id="knStatus" class="help" aria-live="polite"></p></div></section>
+<section class="view" id="insights">
+  <div class="card stack">
+    <div class="panelhead"><h2>تحليل المحادثات القديمة</h2><button class="btn ghost" type="button" id="refreshInsights">تحديث النتائج</button></div>
+    <div class="notice">راجع الأسئلة المتكررة ومعلومات المنتجات وأسلوب الرد المستخلص من المحادثات. اعتماد المعلومة لا يحدّث Gemini تلقائياً بعد؛ سيتم ربط المعرفة المعتمدة في إصدار لاحق. لا تُدخل بيانات شخصية للعملاء.</div>
+    <div class="metrics" id="insightMetrics"></div>
+    <div class="form">
+      <label>تصفية حسب الحالة<select id="insightFilter"><option value="all">جميع الحالات</option><option value="pending">بانتظار المراجعة</option><option value="approved">معتمد</option><option value="rejected">مرفوض</option></select></label>
+      <label>تصفية حسب التصنيف<select id="insightCategory"><option value="all">كل التصنيفات</option><option value="faq">الأسئلة الشائعة</option><option value="product_info">معلومات المنتجات</option><option value="sales_style">أسلوب الرد</option><option value="customer_objection">اعتراضات العملاء</option><option value="sales_opportunity">فرص المبيعات</option></select></label>
+    </div>
+    <p id="insightsStatus" class="help" role="status" aria-live="polite"></p>
+    <div id="insightsList" class="stack"><p class="empty">افتح التبويب لتحميل البيانات.</p></div>
+    <button class="btn ghost" type="button" id="loadMoreInsights" hidden>تحميل المزيد</button>
+  </div>
+</section>
+<section class="view" id="assistant"><div class="card stack"><div class="panelhead"><h2>الإيجنت الذكي — ذاكرة المحادثة</h2><button type="button" id="aiNewChat" class="btn ghost">محادثة جديدة</button></div><div class="notice">تجربة خاصة بالمدير: يقرأ أسماء المنتجات وأسعارها من Supabase ويرد باللهجة العراقية. لا يثبت طلبات ولا يرسل رسائل إلى إنستغرام.</div><div id="aiChat" class="chat" aria-live="polite"><div class="bubble bot">هلا بيك! جرب تسألني عن منتجات RavenLab وأسعارها.</div></div><form id="aiForm" class="chatrow"><input id="aiInput" maxlength="1000" required autocomplete="off" placeholder="مثلاً: عندكم ميداليات؟ وكم سعرها؟"><button type="submit" class="btn" id="aiSend">إرسال</button></form><p class="help">الذاكرة مؤقتة داخل الصفحة فقط (آخر 16 رسالة). تختفي عند التحديث أو الضغط على محادثة جديدة. لا تدخل بيانات عملاء حقيقية هنا.</p></div></section>
+</section><footer class="foot">RavenLab AI v0.7 • Supabase Auth + Database • No Instagram connection</footer></main>
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const $=id=>document.getElementById(id), money=n=>Math.round(Number(n)||0).toLocaleString('en-US')+' د.ع';
@@ -157,6 +172,173 @@ $('knFaq').addEventListener('submit',e=>knSave(e,async(product,f)=>{
   e.target.reset();
 }));
 $('tabs').addEventListener('click',e=>{if(e.target.closest('[data-tab="knowledge"]'))loadKnowledgeUI();});
+
+
+// ============================================
+// RavenLab AI v0.7 — Conversation Intelligence
+// ============================================
+const insightCategories = {
+  faq: 'الأسئلة الشائعة',
+  product_info: 'معلومات المنتجات',
+  sales_style: 'أسلوب الرد',
+  customer_objection: 'اعتراضات العملاء',
+  sales_opportunity: 'فرص المبيعات'
+};
+const insightStatuses = {
+  pending: 'بانتظار المراجعة',
+  approved: 'معتمد',
+  rejected: 'مرفوض'
+};
+let insightData = [];
+let insightPage = 0;
+let insightHasMore = false;
+let insightBusy = false;
+const INSIGHT_PAGE_SIZE = 100;
+
+function insightLine(label, value) {
+  const p = document.createElement('p');
+  const b = document.createElement('strong');
+  b.textContent = `${label}: `;
+  p.append(b, document.createTextNode(String(value ?? '—')));
+  return p;
+}
+
+function drawInsightMetrics() {
+  const root = $('insightMetrics');
+  const counts = [
+    ['النتائج المحملة', insightData.length],
+    ['بانتظار المراجعة', insightData.filter(x => x.status === 'pending').length],
+    ['معتمدة', insightData.filter(x => x.status === 'approved').length],
+    ['مرفوضة', insightData.filter(x => x.status === 'rejected').length],
+  ];
+  root.replaceChildren(...counts.map(([label, value]) => {
+    const card = el('div', undefined, 'card');
+    card.append(el('small', label), el('div', value, 'number'));
+    return card;
+  }));
+}
+
+function drawInsights() {
+  const list = $('insightsList');
+  const status = $('insightsStatus');
+  const filter = $('insightFilter').value;
+  const category = $('insightCategory').value;
+  const visible = insightData.filter(x =>
+    (filter === 'all' || x.status === filter) &&
+    (category === 'all' || x.category === category)
+  );
+  drawInsightMetrics();
+  list.replaceChildren();
+  status.textContent = `تم تحميل ${insightData.length} نتيجة${insightHasMore ? '، توجد نتائج إضافية' : ''}. التصفية على النتائج المحملة فقط.`;
+  $('loadMoreInsights').hidden = !insightHasMore;
+  if (!visible.length) {
+    list.append(el('p', insightData.length ? 'لا توجد نتائج تطابق التصفية.' : 'لا توجد نتائج بعد. لم يتم استيراد المحادثات القديمة إلى الجدول حتى الآن.', 'empty'));
+    return;
+  }
+  for (const item of visible) {
+    const card = el('div', undefined, 'card stack');
+    card.append(
+      insightLine('التصنيف', insightCategories[item.category] || item.category),
+      insightLine('السؤال / الملاحظة', item.question),
+      insightLine('الإجابة المقترحة', item.suggested_answer),
+      insightLine('المنتج', item.product_name),
+      insightLine('عدد مرات الظهور', item.occurrence_count),
+      insightLine('الحالة', insightStatuses[item.status] || item.status)
+    );
+    const actions = el('div', undefined, 'chatrow');
+    const makeAction = (title, target) => {
+      const b = el('button', title, target === 'rejected' ? 'btn danger' : 'btn ghost');
+      b.type = 'button';
+      b.disabled = item.status === target;
+      b.addEventListener('click', async () => {
+        if (target === 'approved' && !confirm('هل راجعت الإجابة وتأكدت أنها دقيقة وحديثة ولا تحتوي بيانات شخصية؟')) return;
+        b.disabled = true;
+        try {
+          await changeInsight(item.id, {
+            status: target,
+            reviewed_at: target === 'pending' ? null : new Date().toISOString()
+          });
+        } catch (err) { alert('تعذر تحديث الحالة: ' + err.message); }
+        finally { b.disabled = false; }
+      });
+      return b;
+    };
+    actions.append(
+      makeAction('اعتماد', 'approved'),
+      makeAction('رفض', 'rejected'),
+      makeAction('إعادة للمراجعة', 'pending')
+    );
+    const edit = el('button', 'تعديل النص', 'btn ghost');
+    edit.type = 'button';
+    edit.addEventListener('click', async () => {
+      const newQuestion = prompt('السؤال / الملاحظة:', item.question || '');
+      if (newQuestion === null) return;
+      const newAnswer = prompt('الإجابة المقترحة:', item.suggested_answer || '');
+      if (newAnswer === null) return;
+      if (!newQuestion.trim() && !newAnswer.trim()) {
+        alert('لا يمكن ترك السؤال والإجابة فارغين معاً.'); return;
+      }
+      edit.disabled = true;
+      try {
+        await changeInsight(item.id, {
+          question: newQuestion.trim() || null,
+          suggested_answer: newAnswer.trim() || null,
+          status: 'pending', reviewed_at: null
+        });
+      } catch (err) { alert('تعذر تعديل المعلومة: ' + err.message); }
+      finally { edit.disabled = false; }
+    });
+    card.append(actions, edit);
+    list.append(card);
+  }
+}
+
+async function changeInsight(id, changes) {
+  const {data, error} = await sb.from('conversation_insights')
+    .update(changes).eq('id', id).select('*').single();
+  if (error) throw error;
+  const index = insightData.findIndex(x => x.id === id);
+  if (index !== -1) insightData[index] = data;
+  drawInsights();
+}
+
+async function loadInsights(reset = true) {
+  if (!sb || insightBusy) return;
+  insightBusy = true;
+  const button = $('refreshInsights');
+  button.disabled = true;
+  $('loadMoreInsights').disabled = true;
+  $('insightsStatus').textContent = 'جار تحميل المعلومات...';
+  try {
+    const next = reset ? 0 : insightPage + 1;
+    const start = next * INSIGHT_PAGE_SIZE;
+    const {data, error} = await sb.from('conversation_insights')
+      .select('*').order('created_at', {ascending:false})
+      .order('id', {ascending:false})
+      .range(start, start + INSIGHT_PAGE_SIZE - 1);
+    if (error) throw error;
+    if (reset) insightData = data || [];
+    else insightData.push(...(data || []));
+    insightPage = next;
+    insightHasMore = (data || []).length === INSIGHT_PAGE_SIZE;
+    drawInsights();
+  } catch (err) {
+    $('insightsStatus').textContent = 'تعذر تحميل التحليلات: ' + err.message;
+  } finally {
+    insightBusy = false;
+    button.disabled = false;
+    $('loadMoreInsights').disabled = false;
+  }
+}
+
+$('refreshInsights').addEventListener('click', () => loadInsights(true));
+$('loadMoreInsights').addEventListener('click', () => loadInsights(false));
+$('insightFilter').addEventListener('change', drawInsights);
+$('insightCategory').addEventListener('change', drawInsights);
+$('tabs').addEventListener('click', event => {
+  if (event.target.closest('[data-tab="insights"]')) loadInsights(true);
+});
+
 
 init();
 </script></body></html>
