@@ -2,6 +2,8 @@
 :root{--bg:#0c100d;--panel:#151c16;--panel2:#1c261d;--line:#2b3a2d;--accent:#a6ee5a;--muted:#a1ad9f;--text:#f1f6ed;--danger:#f6a19b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,'Segoe UI',sans-serif;line-height:1.6}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:1320px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:25px}.logo{display:flex;align-items:center;gap:12px}.mark{background:var(--accent);color:#0f170c;width:45px;height:45px;border-radius:13px;display:grid;place-items:center;font-size:24px;font-weight:bold}.sub,.muted{color:var(--muted)}h1,h2,h3,p{margin:0}h1{font-size:23px}h2{font-size:18px;margin-bottom:12px}.pill{border:1px solid #466138;background:#22311d;color:#c7f4a2;border-radius:100px;padding:6px 12px;font-size:12px}.badge{border-radius:8px;background:#293627;color:#c9efaf;padding:4px 9px;font-size:12px;display:inline-block}.warning{background:#3b3021;color:#f6d49b}.tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:23px}.tab{background:#1b251c;border:1px solid var(--line);color:#dce6d9;border-radius:10px;padding:10px 17px}.tab.active{background:var(--accent);color:#18200e;font-weight:bold;border-color:var(--accent)}.view{display:none}.view.active{display:block}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:0 0 20px}.card{border:1px solid var(--line);background:var(--panel);border-radius:15px;padding:18px}.card small{color:var(--muted)}.number{font-size:25px;font-weight:bold;margin-top:5px;direction:ltr;text-align:right}.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}.panelhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px;flex-wrap:wrap}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:right;min-width:600px}th,td{padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:normal}tr:last-child td{border-bottom:0}input,select{width:100%;background:#0c130f;border:1px solid #364839;border-radius:9px;color:var(--text);padding:11px;min-width:0}input:focus,select:focus{outline:2px solid #78ae4a}label{display:grid;gap:5px;font-size:13px;color:#d1decf}.form{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.btn{background:var(--accent);color:#142008;border:0;border-radius:10px;padding:11px 17px;font-weight:bold}.btn.ghost{background:#263327;color:var(--text);border:1px solid var(--line)}.btn.danger{background:#3e2929;color:#ffbfbf}.full{grid-column:1/-1}.stack{display:grid;gap:13px}.notice{border:1px dashed #536b44;background:#1a2818;padding:12px;border-radius:10px;color:#c9dfa8;font-size:13px;margin-bottom:17px}.chat{border:1px solid var(--line);border-radius:12px;background:#111712;min-height:280px;max-height:440px;overflow:auto;padding:15px;display:flex;flex-direction:column;gap:12px}.bubble{padding:12px 14px;border-radius:12px;max-width:83%;white-space:pre-wrap;font-size:14px}.bubble.user{background:#28402c;align-self:flex-start}.bubble.bot{background:#242b25;align-self:flex-end}.chatrow{display:flex;gap:9px;margin-top:12px}.chatrow input{flex:1}.chatrow button{white-space:nowrap}.foot{color:var(--muted);font-size:12px;margin:24px 0 8px;text-align:center}.empty{color:var(--muted);padding:22px 0}.tag{color:#b5df8d}.headline{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px}ul{margin:0;padding-right:21px}.help{font-size:12px;color:var(--muted);margin-top:8px}@media(max-width:850px){.metrics{grid-template-columns:repeat(2,1fr)}.grid,.form{grid-template-columns:1fr}.app{padding:12px}.card{padding:13px}h1{font-size:20px}.number{font-size:20px}}@media(max-width:400px){.metrics{grid-template-columns:1fr 1fr}.chatrow{flex-wrap:wrap}.chatrow button{width:100%}}
 
 .auth-wrap{max-width:440px;margin:8vh auto}.hidden{display:none!important}.status{padding:10px;border-radius:9px;background:#1b291c;margin:10px 0;color:#d4edc3}.error{background:#382626;color:#ffbdba}.config{background:#2b291b;color:#f9daa4}.top-actions{display:flex;align-items:center;gap:10px}.btn:disabled{opacity:.5;cursor:not-allowed}
+
+.draft-panel{border:1px solid #587443;background:#1a2619;border-radius:14px;padding:16px;margin-top:10px}.draft-panel h3{font-size:16px;margin:0}.draft-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.draft-field{background:#111b12;border:1px solid #344734;padding:9px;border-radius:9px}.draft-field span{display:block;font-size:12px;color:#a9b8a5}.draft-field strong{font-size:14px;overflow-wrap:anywhere}.draft-note{color:#f1cf9b;font-size:13px}.draft-controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center}.draft-loading{color:#bfd9a5;font-size:13px}@media(max-width:520px){.draft-grid{grid-template-columns:1fr}}
 </style></head><body>
 <main class="app">
 <header class="top"><div class="logo"><div class="mark">R</div><div><h1>RavenLab AI</h1><div class="sub">لوحة إدارة متصلة بـSupabase • v0.7</div></div></div><div class="top-actions"><span class="pill">● غير مرتبط بإنستغرام بعد</span><button id="logout" class="btn ghost hidden">تسجيل خروج</button></div></header>
@@ -37,8 +39,16 @@
     <button class="btn ghost" type="button" id="loadMoreInsights" hidden>تحميل المزيد</button>
   </div>
 </section>
-<section class="view" id="assistant"><div class="card stack"><div class="panelhead"><h2>الإيجنت الذكي — ذاكرة المحادثة</h2><button type="button" id="aiNewChat" class="btn ghost">محادثة جديدة</button></div><div class="notice">تجربة خاصة بالمدير: يقرأ أسماء المنتجات وأسعارها من Supabase ويرد باللهجة العراقية. لا يثبت طلبات ولا يرسل رسائل إلى إنستغرام.</div><div id="aiChat" class="chat" aria-live="polite"><div class="bubble bot">هلا بيك! جرب تسألني عن منتجات RavenLab وأسعارها.</div></div><form id="aiForm" class="chatrow"><input id="aiInput" maxlength="1000" required autocomplete="off" placeholder="مثلاً: عندكم ميداليات؟ وكم سعرها؟"><button type="submit" class="btn" id="aiSend">إرسال</button></form><p class="help">الذاكرة مؤقتة داخل الصفحة فقط (آخر 16 رسالة). تختفي عند التحديث أو الضغط على محادثة جديدة. لا تدخل بيانات عملاء حقيقية هنا.</p></div></section>
-</section><footer class="foot">RavenLab AI v0.7 • Supabase Auth + Database • No Instagram connection</footer></main>
+<section class="view" id="assistant"><div class="card stack"><div class="panelhead"><h2>الإيجنت الذكي — ذاكرة المحادثة</h2><button type="button" id="aiNewChat" class="btn ghost">محادثة جديدة</button></div><div class="notice">تجربة خاصة بالمدير: يقرأ أسماء المنتجات وأسعارها من Supabase ويرد باللهجة العراقية. لا يثبت طلبات ولا يرسل رسائل إلى إنستغرام.</div><div id="aiChat" class="chat" aria-live="polite"><div class="bubble bot">هلا بيك! جرب تسألني عن منتجات RavenLab وأسعارها.</div></div><form id="aiForm" class="chatrow"><input id="aiInput" maxlength="1000" required autocomplete="off" placeholder="مثلاً: عندكم ميداليات؟ وكم سعرها؟"><button type="submit" class="btn" id="aiSend">إرسال</button></form><div id="draftPanel" class="draft-panel hidden" aria-live="polite">
+    <div class="draft-controls"><h3>مسودة طلب تجريبية</h3><button type="button" id="clearDraft" class="btn ghost">إخفاء المسودة</button></div>
+    <p id="draftStatus" class="help"></p>
+    <div id="draftFields" class="draft-grid"></div>
+    <p id="draftMissing" class="draft-note"></p>
+    <p class="help">لم تُحفظ في Supabase. لا يوجد طلب مثبت، ولا يمكن اعتماد الأسعار أو التنفيذ دون مراجعة.</p>
+  </div>
+  <p id="draftHint" class="help" aria-live="polite"></p>
+  <p class="help">الذاكرة مؤقتة داخل الصفحة فقط (آخر 16 رسالة). تختفي عند التحديث أو الضغط على محادثة جديدة. لا تدخل بيانات عملاء حقيقية هنا.</p></div></section>
+</section><footer class="foot">RavenLab AI v0.8 • Supabase Auth + Database • No Instagram connection</footer></main>
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const $=id=>document.getElementById(id), money=n=>Math.round(Number(n)||0).toLocaleString('en-US')+' د.ع';
@@ -61,13 +71,50 @@ async function submit(e,fn){e.preventDefault();let b=e.target.querySelector('but
 $('productForm').addEventListener('submit',e=>submit(e,async f=>{let name=String(f.get('name')).trim(),p=Number(f.get('price')),c=Number(f.get('cost'));if(!name||p<0||c<0)throw Error('تحقق من المعلومات');let {error}=await sb.from('products').insert({name,price_iqd:p,cost_iqd:c});if(error)throw error}));
 $('expenseForm').addEventListener('submit',e=>submit(e,async f=>{let {error}=await sb.from('expenses').insert({category:String(f.get('category')),description:String(f.get('description')).trim(),amount_iqd:Number(f.get('amount'))});if(error)throw error}));
 $('orderForm').addEventListener('submit',e=>submit(e,async f=>{let p=state.products.find(x=>String(x.id)===String(f.get('product'))),qty=Number(f.get('qty')),fee=Number(f.get('delivery')),name=String(f.get('customer')).trim();if(!p||!name||!Number.isInteger(qty)||qty<=0||fee<0)throw Error('معلومات طلب غير صحيحة');let {data:customer,error:a}=await sb.from('customers').insert({name,notes:'طلب اختبار يدوي'}).select('id').single();if(a)throw a;let {data:order,error:b}=await sb.from('orders').insert({customer_id:customer.id,status:String(f.get('status')),delivery_fee_iqd:fee,notes:'طلب اختبار يدوي'}).select('id').single();if(b)throw b;let {error:c}=await sb.from('order_items').insert({order_id:order.id,product_id:p.id,quantity:qty,unit_price_iqd:p.price_iqd,unit_cost_iqd:p.cost_iqd});if(c)throw c}));
-// v0.6: ephemeral per-page chat memory; no localStorage or database persistence.
+// v0.8: ephemeral chat history and read-only draft extraction.
 let aiHistory = [];
 const AI_HISTORY_LIMIT = 16;
+let draftGeneration = 0;
 function chatBubble(text,kind){const item=el('div',text,'bubble '+kind);$('aiChat').append(item);$('aiChat').scrollTop=$('aiChat').scrollHeight}
+const draftFieldNames={product:'المنتج',quantity:'الكمية',variant:'الخيار',price_review:'السعر يحتاج مراجعة',design_review:'مراجعة التصميم'};
+function clearDraft(){draftGeneration++;$('draftPanel').classList.add('hidden');$('draftFields').replaceChildren();$('draftStatus').textContent='';$('draftMissing').textContent='';$('draftHint').textContent=''}
+$('clearDraft').addEventListener('click',clearDraft);
+function addDraftField(label,value){const box=el('div',undefined,'draft-field');box.append(el('span',label),el('strong',value));$('draftFields').append(box)}
+function displayDraft(draft){
+  $('draftFields').replaceChildren();
+  $('draftPanel').classList.remove('hidden');
+  const price=Number(draft.quoted_price_iqd);
+  const validPrice=draft.price_status==='verified'&&draft.quoted_price_iqd!=null&&Number.isFinite(price);
+  $('draftStatus').textContent=validPrice?'سعر مطابق لسجل المنتجات — ما زال يحتاج مراجعة المدير':'السعر غير محسوم، يحتاج مراجعة';
+  addDraftField('المنتج',draft.product_name||'غير محدد');
+  addDraftField('الخيار',draft.variant_name||'غير محدد / غير مطلوب');
+  addDraftField('الكمية',draft.quantity!=null?String(draft.quantity):'غير محددة');
+  addDraftField('الألوان',draft.colors||'غير محددة');
+  addDraftField('التخصيص',draft.customization_notes||'غير مذكور');
+  addDraftField('حالة التصميم',({pending:'بانتظار التصميم أو مراجعته',received:'مستلم وفق معلومات المحادثة',not_required:'غير مطلوب'})[draft.design_status]||'غير مؤكدة');
+  addDraftField('سعر الطلب',validPrice?money(price):'يتطلب مراجعة');
+  addDraftField('حالة المسودة',draft.status==='needs_info'?'معلومات ناقصة':'مسودة للاختبار');
+  const missing=Array.isArray(draft.missing_fields)?draft.missing_fields:[];
+  $('draftMissing').textContent=missing.length?'يلزم التحقق من: '+missing.map(k=>draftFieldNames[k]||k).join('، '):'لا تظهر حقول ناقصة آلياً، لكن موافقة المدير ومراجعة التنفيذ لازمتان.';
+  $('draftHint').textContent='تم استخراج مسودة تجريبية من المحادثة، ولم يتم حفظ أي طلب.';
+}
+async function extractDraft(message,history,version){
+  $('draftHint').textContent='جار فحص المحادثة لاستخراج مسودة الطلب...';
+  try{
+    const {data,error}=await sb.functions.invoke('ravenlab-order-draft',{body:{message,history}});
+    if(version!==draftGeneration)return;
+    if(error){
+      let detail=error.message;
+      try{const body=await error.context?.json();if(body?.error)detail=body.error}catch{}
+      throw Error(detail);
+    }
+    if(data?.draft){displayDraft(data.draft)}
+    else{$('draftPanel').classList.add('hidden');$('draftHint').textContent='لا يوجد طلب واضح يحتاج مسودة حالياً.'}
+  }catch(err){if(version===draftGeneration)$('draftHint').textContent='تعذر تحليل الطلب: '+(err?.message||String(err))+' — المحادثة نفسها ما زالت تعمل.'}
+}
 $('aiNewChat').addEventListener('click',()=>{
   if($('aiSend').disabled)return;
-  aiHistory=[];
+  aiHistory=[];clearDraft();
   $('aiChat').replaceChildren();
   chatBubble('محادثة جديدة. شنو تحب تعرف عن منتجات RavenLab؟','bot');
   $('aiInput').focus();
@@ -79,12 +126,18 @@ $('aiForm').addEventListener('submit',async e=>{
   const history=aiHistory.slice(-AI_HISTORY_LIMIT).map(({role,text})=>({role,text}));
   chatBubble(message,'user');input.value='';btn.disabled=true;
   $('aiNewChat').disabled=true;
+  const version=++draftGeneration;
+  $('draftPanel').classList.add('hidden');
+  $('draftHint').textContent='';
   try{
     const {data,error}=await sb.functions.invoke('ravenlab-chat-',{body:{message,history}});
     if(error){let detail=error.message;try{const body=await error.context?.json();if(body?.error)detail=body.error}catch{}throw Error(detail)}
     if(typeof data?.reply!=='string'||!data.reply.trim())throw Error('لم يصل رد من الإيجنت');
     chatBubble(data.reply,'bot');
     aiHistory=[...history,{role:'user',text:message},{role:'model',text:data.reply}].slice(-AI_HISTORY_LIMIT);
+    // Send only previous context and the latest user text to the extractor.
+    // No order is saved or confirmed here.
+    await extractDraft(message,history,version);
   }catch(err){chatBubble('تعذر الرد: '+err.message,'bot')}
   finally{btn.disabled=false;$('aiNewChat').disabled=false;input.focus()}
 });
