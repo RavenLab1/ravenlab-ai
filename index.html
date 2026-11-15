@@ -1,19 +1,19 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RavenLab AI — Dashboard v0.8.1</title><style>
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RavenLab AI — Dashboard v0.9</title><style>
 :root{--bg:#0c100d;--panel:#151c16;--panel2:#1c261d;--line:#2b3a2d;--accent:#a6ee5a;--muted:#a1ad9f;--text:#f1f6ed;--danger:#f6a19b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,'Segoe UI',sans-serif;line-height:1.6}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:1320px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:25px}.logo{display:flex;align-items:center;gap:12px}.mark{background:var(--accent);color:#0f170c;width:45px;height:45px;border-radius:13px;display:grid;place-items:center;font-size:24px;font-weight:bold}.sub,.muted{color:var(--muted)}h1,h2,h3,p{margin:0}h1{font-size:23px}h2{font-size:18px;margin-bottom:12px}.pill{border:1px solid #466138;background:#22311d;color:#c7f4a2;border-radius:100px;padding:6px 12px;font-size:12px}.badge{border-radius:8px;background:#293627;color:#c9efaf;padding:4px 9px;font-size:12px;display:inline-block}.warning{background:#3b3021;color:#f6d49b}.tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:23px}.tab{background:#1b251c;border:1px solid var(--line);color:#dce6d9;border-radius:10px;padding:10px 17px}.tab.active{background:var(--accent);color:#18200e;font-weight:bold;border-color:var(--accent)}.view{display:none}.view.active{display:block}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:0 0 20px}.card{border:1px solid var(--line);background:var(--panel);border-radius:15px;padding:18px}.card small{color:var(--muted)}.number{font-size:25px;font-weight:bold;margin-top:5px;direction:ltr;text-align:right}.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}.panelhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px;flex-wrap:wrap}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:right;min-width:600px}th,td{padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:normal}tr:last-child td{border-bottom:0}input,select{width:100%;background:#0c130f;border:1px solid #364839;border-radius:9px;color:var(--text);padding:11px;min-width:0}input:focus,select:focus{outline:2px solid #78ae4a}label{display:grid;gap:5px;font-size:13px;color:#d1decf}.form{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.btn{background:var(--accent);color:#142008;border:0;border-radius:10px;padding:11px 17px;font-weight:bold}.btn.ghost{background:#263327;color:var(--text);border:1px solid var(--line)}.btn.danger{background:#3e2929;color:#ffbfbf}.full{grid-column:1/-1}.stack{display:grid;gap:13px}.notice{border:1px dashed #536b44;background:#1a2818;padding:12px;border-radius:10px;color:#c9dfa8;font-size:13px;margin-bottom:17px}.chat{border:1px solid var(--line);border-radius:12px;background:#111712;min-height:280px;max-height:440px;overflow:auto;padding:15px;display:flex;flex-direction:column;gap:12px}.bubble{padding:12px 14px;border-radius:12px;max-width:83%;white-space:pre-wrap;font-size:14px}.bubble.user{background:#28402c;align-self:flex-start}.bubble.bot{background:#242b25;align-self:flex-end}.chatrow{display:flex;gap:9px;margin-top:12px}.chatrow input{flex:1}.chatrow button{white-space:nowrap}.foot{color:var(--muted);font-size:12px;margin:24px 0 8px;text-align:center}.empty{color:var(--muted);padding:22px 0}.tag{color:#b5df8d}.headline{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px}ul{margin:0;padding-right:21px}.help{font-size:12px;color:var(--muted);margin-top:8px}@media(max-width:850px){.metrics{grid-template-columns:repeat(2,1fr)}.grid,.form{grid-template-columns:1fr}.app{padding:12px}.card{padding:13px}h1{font-size:20px}.number{font-size:20px}}@media(max-width:400px){.metrics{grid-template-columns:1fr 1fr}.chatrow{flex-wrap:wrap}.chatrow button{width:100%}}
 
 .auth-wrap{max-width:440px;margin:8vh auto}.hidden{display:none!important}.status{padding:10px;border-radius:9px;background:#1b291c;margin:10px 0;color:#d4edc3}.error{background:#382626;color:#ffbdba}.config{background:#2b291b;color:#f9daa4}.top-actions{display:flex;align-items:center;gap:10px}.btn:disabled{opacity:.5;cursor:not-allowed}
 
 .draft-panel{border:1px solid #587443;background:#1a2619;border-radius:14px;padding:16px;margin-top:10px}.draft-panel h3{font-size:16px;margin:0}.draft-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.draft-field{background:#111b12;border:1px solid #344734;padding:9px;border-radius:9px}.draft-field span{display:block;font-size:12px;color:#a9b8a5}.draft-field strong{font-size:14px;overflow-wrap:anywhere}.draft-note{color:#f1cf9b;font-size:13px}.draft-controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center}.draft-loading{color:#bfd9a5;font-size:13px}@media(max-width:520px){.draft-grid{grid-template-columns:1fr}}
-.saved-drafts{margin-bottom:16px}.draft-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:end}.draft-actions label{flex:1;min-width:170px}.draft-actions button{align-self:end}.draft-save-msg{font-size:13px;color:#c9dfa8} .drafts-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}</style></head><body>
+.saved-drafts{margin-bottom:16px}.draft-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:end}.draft-actions label{flex:1;min-width:170px}.draft-actions button{align-self:end}.draft-save-msg{font-size:13px;color:#c9dfa8}.review-endpoint{display:flex;align-items:end;flex-wrap:wrap;gap:8px;margin:10px 0}.review-endpoint label{flex:1;min-width:220px}.review-endpoint small{width:100%;color:#adb9a5}.review-editor{border:1px solid #516c42;border-radius:12px;padding:16px;margin:12px 0;background:#152018}.review-buttons{display:flex;gap:8px;flex-wrap:wrap}.review-row-btns{display:flex;flex-wrap:wrap;gap:5px}.review-row-btns button{font-size:12px;padding:5px 8px}.review-pending{color:#ffd494}.review-approved{color:#baf38f}.review-rejected{color:#ffa9a9} .drafts-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}</style></head><body>
 <main class="app">
-<header class="top"><div class="logo"><div class="mark">R</div><div><h1>RavenLab AI</h1><div class="sub">لوحة إدارة متصلة بـSupabase • v0.8.1</div></div></div><div class="top-actions"><span class="pill">● غير مرتبط بإنستغرام بعد</span><button id="logout" class="btn ghost hidden">تسجيل خروج</button></div></header>
+<header class="top"><div class="logo"><div class="mark">R</div><div><h1>RavenLab AI</h1><div class="sub">لوحة إدارة متصلة بـSupabase • v0.9</div></div></div><div class="top-actions"><span class="pill">● غير مرتبط بإنستغرام بعد</span><button id="logout" class="btn ghost hidden">تسجيل خروج</button></div></header>
 <section id="setup" class="auth-wrap hidden"><div class="card stack"><h2>إعداد اتصال Supabase</h2><div class="notice">أدخل فقط Project URL وPublishable Key أو مفتاح anon العام. لا تدخل service_role أو secret key إطلاقاً.</div><form id="configForm" class="stack"><label>Project URL<input id="sbUrl" type="url" required placeholder="https://xxxxx.supabase.co"></label><label>Publishable / anon key<input id="sbKey" required placeholder="sb_publishable_... أو eyJ..."></label><button class="btn">حفظ الاتصال بهذا المتصفح</button></form><p class="help">يمكن لاحقاً وضع القيم العامة في ملف config.js. تحفظ إعدادات الاتصال العامة في هذا المتصفح فقط.</p></div></section>
 <section id="auth" class="auth-wrap hidden"><div class="card stack"><h2>تسجيل دخول المدير</h2><div class="notice">استخدم البريد وكلمة المرور اللذين أنشأتهما في Supabase Authentication.</div><form id="loginForm" class="stack"><label>البريد الإلكتروني<input type="email" name="email" autocomplete="username" required></label><label>كلمة المرور<input type="password" name="password" autocomplete="current-password" required></label><button class="btn" type="submit">تسجيل الدخول</button></form><button id="changeConfig" class="btn ghost" type="button">تعديل اتصال Supabase</button></div></section>
 <section id="app" class="hidden"><div id="notice" class="status">جار التحميل...</div>
 <nav class="tabs" id="tabs"><button class="tab active" data-tab="overview">نظرة عامة</button><button class="tab" data-tab="products">المنتجات</button><button class="tab" data-tab="orders">الطلبات</button><button class="tab" data-tab="expenses">المصاريف</button><button class="tab" data-tab="knowledge">معرفة المنتجات</button><button class="tab" data-tab="insights">تحليل المحادثات</button><button class="tab" data-tab="assistant">الإيجنت</button></nav>
 <section class="view active" id="overview"><div class="metrics" id="metrics"></div><div class="grid"><div class="card"><h2>أحدث الطلبات</h2><div class="tablewrap" id="latest"></div></div><div class="card"><h2>ملاحظات</h2><div id="alerts" class="stack"></div></div></div></section>
 <section class="view" id="products"><h2>المنتجات</h2><div class="card stack"><form id="productForm" class="form"><label>اسم المنتج<input name="name" maxlength="100" required></label><label>السعر (د.ع)<input name="price" type="number" min="0" step="1" required></label><label>التكلفة (د.ع)<input name="cost" type="number" min="0" step="1" required></label><button class="btn full">إضافة المنتج</button></form><div class="tablewrap" id="productsTable"></div></div></section>
-<section class="view" id="orders"><h2>الطلبات</h2><div class="card stack saved-drafts"><div class="drafts-toolbar"><h2>مسودات الإيجنت المحفوظة</h2><button type="button" id="reloadSavedDrafts" class="btn ghost">تحديث المسودات</button></div><div class="notice">مسودات اختبار للمراجعة فقط. لا تُؤكد أي طلب ولا يُعتمد السعر عند الحفظ.</div><div class="tablewrap" id="savedDraftsTable"><p class="empty">افتح التبويب لعرض المسودات.</p></div><p id="savedDraftsMessage" class="help" aria-live="polite"></p></div><div class="card stack"><p class="help">للنسخة الأولى: سجل طلب اختبار باسم مستعار. إضافة العملاء بأرقامهم وعناوينهم ستكون بعد تجهيز الخصوصية والتحقق من الحقول.</p><form id="orderForm" class="form"><label>اسم مستعار<input name="customer" required maxlength="100" placeholder="عميل اختبار 01"></label><label>المنتج<select name="product" id="productSelect" required></select></label><label>الكمية<input name="qty" type="number" min="1" step="1" required value="1"></label><label>التوصيل<input name="delivery" type="number" min="0" step="1" value="5000" required></label><label>الحالة<select name="status"><option value="pending">بانتظار التأكيد</option><option value="confirmed">مؤكد</option><option value="printing">قيد الطباعة</option><option value="shipped">بالطريق</option><option value="delivered">مكتمل</option><option value="cancelled">ملغي</option></select></label><button class="btn full">حفظ الطلب</button></form><div class="tablewrap" id="ordersTable"></div></div></section>
+<section class="view" id="orders"><h2>الطلبات</h2><div class="card stack saved-drafts"><div class="drafts-toolbar"><h2>مسودات الإيجنت المحفوظة</h2><button type="button" id="reloadSavedDrafts" class="btn ghost">تحديث المسودات</button></div><div class="notice">مسودات اختبار للمراجعة فقط. لا تُؤكد أي طلب ولا يُعتمد السعر عند الحفظ.</div><div class="review-endpoint"><label>رابط وظيفة المراجعة (اسم Endpoint فقط)<input id="reviewEndpoint" autocomplete="off" spellcheck="false" placeholder="ravenlab-order-review"></label><button type="button" id="saveReviewEndpoint" class="btn ghost">حفظ الرابط</button><small>إذا ظهر اسم مختلف في Supabase → Edge Functions → Overview فاكتب آخر جزء من الرابط هنا. لا تضع أي مفاتيح أو رموز جلسات.</small></div><div class="tablewrap" id="savedDraftsTable"><p class="empty">افتح التبويب لعرض المسودات.</p></div><div id="reviewEditor" class="review-editor hidden"><h3 id="reviewTitle">تعديل مسودة</h3><p class="help">أي تغيير يعيد حساب السعر من Supabase بواسطة وظيفة المراجعة.</p><form id="reviewForm" class="form"><label>الاسم المرجعي<input id="reviewLabel" maxlength="150"></label><label>المنتج<select id="reviewProduct"><option value="">غير محدد</option></select></label><label>الخيار<select id="reviewVariant"><option value="">غير محدد</option></select></label><label>الكمية<input id="reviewQuantity" type="number" min="1" max="100000" step="1" placeholder="الكمية"></label><label>الألوان<input id="reviewColors" maxlength="500"></label><label>ملاحظات التخصيص<textarea id="reviewNotes" maxlength="500" rows="3"></textarea></label><label>حالة التصميم<select id="reviewDesign"><option value="pending">بانتظار التصميم / المراجعة</option><option value="received">تم الاستلام</option><option value="approved">تمت مراجعة التصميم</option><option value="not_required">غير مطلوب</option></select></label><div class="review-buttons"><button type="submit" class="btn" id="reviewSave">حفظ التعديلات</button><button type="button" class="btn ghost" id="reviewCancel">إلغاء</button></div></form></div><p id="savedDraftsMessage" class="help" aria-live="polite"></p></div><div class="card stack"><p class="help">للنسخة الأولى: سجل طلب اختبار باسم مستعار. إضافة العملاء بأرقامهم وعناوينهم ستكون بعد تجهيز الخصوصية والتحقق من الحقول.</p><form id="orderForm" class="form"><label>اسم مستعار<input name="customer" required maxlength="100" placeholder="عميل اختبار 01"></label><label>المنتج<select name="product" id="productSelect" required></select></label><label>الكمية<input name="qty" type="number" min="1" step="1" required value="1"></label><label>التوصيل<input name="delivery" type="number" min="0" step="1" value="5000" required></label><label>الحالة<select name="status"><option value="pending">بانتظار التأكيد</option><option value="confirmed">مؤكد</option><option value="printing">قيد الطباعة</option><option value="shipped">بالطريق</option><option value="delivered">مكتمل</option><option value="cancelled">ملغي</option></select></label><button class="btn full">حفظ الطلب</button></form><div class="tablewrap" id="ordersTable"></div></div></section>
 <section class="view" id="expenses"><h2>المصاريف</h2><div class="card stack"><form id="expenseForm" class="form"><label>التصنيف<select name="category"><option>إعلانات</option><option>كهرباء</option><option>تغليف</option><option>فلمنت</option><option>أخرى</option></select></label><label>الوصف<input name="description" maxlength="100"></label><label>القيمة (د.ع)<input name="amount" type="number" min="0" step="1" required></label><button class="btn full">تسجيل مصروف</button></form><div class="tablewrap" id="expensesTable"></div></div></section>
 <section class="view" id="knowledge">
 <div class="card stack"><h2>معرفة المنتجات والباقات</h2>
@@ -48,7 +48,7 @@
   </div>
   <p id="draftHint" class="help" aria-live="polite"></p>
   <p class="help">الذاكرة مؤقتة داخل الصفحة فقط (آخر 16 رسالة). تختفي عند التحديث أو الضغط على محادثة جديدة. لا تدخل بيانات عملاء حقيقية هنا.</p></div></section>
-</section><footer class="foot">RavenLab AI v0.8.1 • Supabase Auth + Database • No Instagram connection</footer></main>
+</section><footer class="foot">RavenLab AI v0.9 • Supabase Auth + Database • No Instagram connection</footer></main>
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const $=id=>document.getElementById(id), money=n=>Math.round(Number(n)||0).toLocaleString('en-US')+' د.ع';
@@ -149,38 +149,140 @@ $('aiForm').addEventListener('submit',async e=>{
   finally{btn.disabled=false;$('aiNewChat').disabled=false;input.focus()}
 });
 
-// v0.8.1: persist review-only drafts. Never save an AI quote as an approved price.
+// v0.9: persist review-only drafts. Never save an AI quote as an approved price.
 function safePositiveId(value){const n=Number(value);return Number.isSafeInteger(n)&&n>0?n:null}
 function strLimit(value,length=500){return typeof value==='string'?value.trim().slice(0,length):''}
-async function loadSavedDrafts(){
-  if(savedDraftsLoading)return;
-  savedDraftsLoading=true;
-  $('savedDraftsMessage').textContent='جار تحميل المسودات...';
-  try{
-    const {data,error}=await sb.from('order_drafts')
-      .select('id,created_at,customer_label,product_name,quantity,colors,status,price_status,quoted_price_iqd,missing_fields')
-      .order('created_at',{ascending:false}).limit(80);
-    if(error)throw error;
-    const root=$('savedDraftsTable');root.replaceChildren();
-    if(!data?.length){root.append(el('p','لا توجد مسودات محفوظة بعد.','empty'));}
-    else{
-      const tableNode=el('table');
-      const thead=el('thead'),tr=el('tr');
-      for(const name of ['الرقم','المرجع','المنتج','الكمية','الحالة','السعر','التاريخ'])tr.append(el('th',name));
-      thead.append(tr);tableNode.append(thead);
-      const tbody=el('tbody');
-      for(const d of data){
-        const row=el('tr');
-        const cells=['#'+d.id,d.customer_label||'—',d.product_name||'غير معروف',d.quantity==null?'—':String(d.quantity),d.status==='needs_info'?'معلومات ناقصة':d.status==='draft'?'مسودة':d.status,d.price_status==='verified'&&d.quoted_price_iqd!=null?money(d.quoted_price_iqd):'غير معتمد',new Date(d.created_at).toLocaleDateString('ar-IQ')];
-        for(const value of cells)row.append(el('td',String(value)));
-        tbody.append(row);
+// v0.9: server-verified draft review — endpoint is configurable because
+// Supabase can assign an endpoint slug different from its display name.
+const REVIEW_ENDPOINT_SETTING='ravenlab-review-endpoint';
+let reviewDrafts=[], editReviewId=null, reviewBusy=false, reviewVariantOptions=[];
+function reviewEndpoint(){return $('reviewEndpoint').value.trim();}
+function reviewStatus(status){return ({draft:'مسودة',needs_info:'معلومات ناقصة',pending_review:'بانتظار مراجعة المدير',approved:'معتمد داخلياً',rejected:'مرفوض'})[status]||status;}
+function reviewMessage(text,isError=false){$('savedDraftsMessage').textContent=text;$('savedDraftsMessage').style.color=isError?'#ffa9a9':'#c9dfa8';}
+$('reviewEndpoint').value=localStorage.getItem(REVIEW_ENDPOINT_SETTING)||'ravenlab-order-review';
+$('saveReviewEndpoint').addEventListener('click',()=>{
+  const name=reviewEndpoint();
+  if(!/^[a-z0-9][a-z0-9-]*$/.test(name)){reviewMessage('اكتب اسم Endpoint فقط، من دون الرابط الكامل.',true);return;}
+  localStorage.setItem(REVIEW_ENDPOINT_SETTING,name);reviewMessage('انحفظ اسم Endpoint. جاري إعادة تحميل المسودات...');loadSavedDrafts();
+});
+async function reviewCall(action,body={}){
+  const name=reviewEndpoint();
+  if(!/^[a-z0-9][a-z0-9-]*$/.test(name))throw Error('اسم Endpoint غير صحيح');
+  const {data,error}=await sb.functions.invoke(name,{body:{action,...body}});
+  if(error){
+    let reason=error.message||'فشل الاتصال';
+    try{const details=await error.context?.json();if(details?.error)reason+=' — '+details.error;}catch{}
+    throw Error(reason+' (تأكد من Endpoint المنشور في Supabase)');
+  }
+  if(data?.error)throw Error(data.error+(data.missing_fields?.length?' — '+data.missing_fields.join('، '):''));
+  return data;
+}
+function reviewButton(label,action,draft){
+  const b=el('button',label,'btn ghost');b.type='button';b.dataset.action=action;b.dataset.draftId=draft.id;
+  if(['approved','rejected'].includes(draft.status))b.disabled=true;
+  if(['approve','reject'].includes(action)&&draft.status!=='pending_review')b.disabled=true;
+  if(action==='submit'&&draft.status==='pending_review')b.disabled=true;
+  return b;
+}
+function renderReviewDrafts(drafts){
+  const root=$('savedDraftsTable');root.replaceChildren();
+  if(!drafts.length){root.append(el('p','لا توجد مسودات محفوظة بعد.','empty'));return;}
+  const t=el('table'),h=el('thead'),hr=el('tr');
+  ['رقم','المرجع','المنتج','الكمية','الحالة','السعر','التصميم','إجراءات'].forEach(x=>hr.append(el('th',x)));
+  h.append(hr);t.append(h);const body=el('tbody');
+  for(const d of drafts){
+    const r=el('tr');
+    const vals=['#'+d.id,d.customer_label||'—',d.product_name||'غير محدد',d.quantity??'—',reviewStatus(d.status),d.price_status==='verified'&&d.quoted_price_iqd!=null?money(d.quoted_price_iqd):'غير معتمد',({pending:'بانتظار المراجعة',received:'مستلم',approved:'مراجع',not_required:'غير مطلوب'})[d.design_status]||'—'];
+    for(const v of vals)r.append(el('td',v));
+    const actions=el('td'),buttons=el('div',undefined,'review-row-btns');
+    if(!['approved','rejected'].includes(d.status)){
+      buttons.append(reviewButton('تعديل','edit',d));
+      if(d.status!=='pending_review')buttons.append(reviewButton('إرسال للمراجعة','submit',d));
+      if(d.status==='pending_review'){
+        buttons.append(reviewButton('موافقة','approve',d));buttons.append(reviewButton('رفض','reject',d));
       }
-      tableNode.append(tbody);root.append(tableNode);
-    }
-    $('savedDraftsMessage').textContent='المسودات منفصلة عن الطلبات المؤكدة. السعر يحتاج مراجعة قبل الاعتماد.';
-  }catch(e){$('savedDraftsMessage').textContent='تعذر تحميل المسودات: '+(e?.message||String(e));}
+    }else buttons.append(el('span','مراجعة مكتملة'));
+    actions.append(buttons);r.append(actions);body.append(r);
+  }
+  t.append(body);root.append(t);
+}
+async function loadSavedDrafts(){
+  if(savedDraftsLoading||!sb)return;
+  savedDraftsLoading=true;reviewMessage('جار تحميل المسودات من وظيفة المراجعة...');
+  try{
+    const result=await reviewCall('list');reviewDrafts=Array.isArray(result.drafts)?result.drafts:[];
+    renderReviewDrafts(reviewDrafts);
+    reviewMessage('المراجعة داخلية فقط. لا توجد رسائل إنستغرام أو خصومات مخزون أو أوامر تصنيع.');
+  }catch(e){reviewMessage('تعذر تحميل المسودات: '+(e?.message||e),true)}
   finally{savedDraftsLoading=false}
 }
+async function fillReviewVariants(productId,selected){
+  const select=$('reviewVariant');select.replaceChildren(new Option('غير محدد / لا يوجد',''));
+  reviewVariantOptions=[];
+  if(!productId)return;
+  const {data,error}=await sb.from('product_variants').select('id,product_id,name')
+    .eq('product_id',productId).eq('active',true).limit(500);
+  if(error){reviewMessage('تعذر تحميل خيارات المنتج: '+error.message,true);return;}
+  reviewVariantOptions=data||[];
+  for(const v of reviewVariantOptions)select.append(new Option(v.name,String(v.id)));
+  select.value=selected&&reviewVariantOptions.some(v=>String(v.id)===String(selected))?String(selected):'';
+}
+$('reviewProduct').addEventListener('change',()=>fillReviewVariants($('reviewProduct').value,null));
+async function openReviewEditor(d){
+  editReviewId=d.id;$('reviewEditor').classList.remove('hidden');
+  $('reviewTitle').textContent='تعديل مسودة #'+d.id;
+  $('reviewLabel').value=d.customer_label||'';
+  $('reviewQuantity').value=d.quantity||'';
+  $('reviewColors').value=d.colors||'';
+  $('reviewNotes').value=d.customization_notes||'';
+  $('reviewDesign').value=d.design_status||'pending';
+  const sel=$('reviewProduct');sel.replaceChildren(new Option('غير محدد',''));
+  for(const p of state.products.filter(p=>p.active!==false))sel.append(new Option(p.name,String(p.id)));
+  sel.value=d.product_id==null?'':String(d.product_id);
+  await fillReviewVariants(d.product_id,d.variant_id);
+  $('reviewEditor').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function closeReviewEditor(){editReviewId=null;$('reviewEditor').classList.add('hidden');}
+$('reviewCancel').addEventListener('click',closeReviewEditor);
+$('reviewForm').addEventListener('submit',async e=>{
+  e.preventDefault();if(reviewBusy||editReviewId===null)return;
+  const quantityText=$('reviewQuantity').value.trim();
+  const quantity=quantityText===''?null:Number(quantityText);
+  if(quantity!==null&&(!Number.isSafeInteger(quantity)||quantity<1||quantity>100000)){
+    reviewMessage('الكمية يجب أن تكون رقماً صحيحاً بين 1 و100000',true);return;
+  }
+  const patch={
+    customer_label:$('reviewLabel').value.trim()||null,
+    product_id:$('reviewProduct').value?Number($('reviewProduct').value):null,
+    variant_id:$('reviewVariant').value?Number($('reviewVariant').value):null,
+    quantity,colors:$('reviewColors').value.trim()||null,
+    customization_notes:$('reviewNotes').value.trim()||null,
+    design_status:$('reviewDesign').value
+  };
+  reviewBusy=true;$('reviewSave').disabled=true;reviewMessage('جار التحقق من التفاصيل والسعر...');
+  try{await reviewCall('update',{draft_id:editReviewId,patch});closeReviewEditor();await loadSavedDrafts();reviewMessage('✓ حُفظت التعديلات، وأعيد حساب السعر من البيانات الحالية.');}
+  catch(err){reviewMessage('تعذر تعديل المسودة: '+err.message,true)}
+  finally{reviewBusy=false;$('reviewSave').disabled=false}
+});
+$('savedDraftsTable').addEventListener('click',async e=>{
+  const b=e.target.closest('button[data-action]');if(!b||reviewBusy)return;
+  const d=reviewDrafts.find(x=>String(x.id)===b.dataset.draftId);if(!d)return;
+  if(b.dataset.action==='edit'){await openReviewEditor(d);return;}
+  const action=b.dataset.action;
+  let confirmText=action==='submit'?'إرسال المسودة #'+d.id+' إلى قائمة مراجعة المدير؟':
+    action==='approve'?'اعتماد المسودة #'+d.id+' داخلياً؟ لن يُنشأ طلب فعلي ولن تُخصم مواد أو تُرسل رسائل. تأكد من التصميم والمواصفات والمخزون.':
+    'رفض المسودة #'+d.id+'؟ لا يمكن تعديلها بعد الرفض بهذه الوظيفة.';
+  if(!confirm(confirmText))return;
+  reviewBusy=true;b.disabled=true;reviewMessage('جار تنفيذ '+({submit:'إرسال المسودة',approve:'الموافقة',reject:'الرفض'})[action]+'...');
+  try{
+    const result=await reviewCall(action,{draft_id:d.id});
+    closeReviewEditor();await loadSavedDrafts();
+    if(action==='approve')reviewMessage('✓ تمت الموافقة الداخلية على المسودة #'+d.id+'، ولم يتم إنشاء طلب نهائي أو تغيير المخزون.');
+    if(action==='reject')reviewMessage('✓ رُفضت المسودة #'+d.id+'.');
+    if(action==='submit')reviewMessage('✓ أُرسلت المسودة #'+d.id+' لمراجعة المدير. تأكد من استلام التصميم وفحص السعر قبل الموافقة.');
+  }catch(err){reviewMessage('تعذرت العملية: '+err.message,true);b.disabled=false}
+  finally{reviewBusy=false}
+});
 $('reloadSavedDrafts').addEventListener('click',loadSavedDrafts);
 $('tabs').addEventListener('click',event=>{
   if(event.target.closest('[data-tab="orders"]'))loadSavedDrafts();
