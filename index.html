@@ -1,4 +1,4 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RavenLab AI — Dashboard v1.4</title><style>
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RavenLab AI — Dashboard v1.5</title><style>
 :root{--bg:#0c100d;--panel:#151c16;--panel2:#1c261d;--line:#2b3a2d;--accent:#a6ee5a;--muted:#a1ad9f;--text:#f1f6ed;--danger:#f6a19b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,'Segoe UI',sans-serif;line-height:1.6}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:1320px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:25px}.logo{display:flex;align-items:center;gap:12px}.mark{background:var(--accent);color:#0f170c;width:45px;height:45px;border-radius:13px;display:grid;place-items:center;font-size:24px;font-weight:bold}.sub,.muted{color:var(--muted)}h1,h2,h3,p{margin:0}h1{font-size:23px}h2{font-size:18px;margin-bottom:12px}.pill{border:1px solid #466138;background:#22311d;color:#c7f4a2;border-radius:100px;padding:6px 12px;font-size:12px}.badge{border-radius:8px;background:#293627;color:#c9efaf;padding:4px 9px;font-size:12px;display:inline-block}.warning{background:#3b3021;color:#f6d49b}.tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:23px}.tab{background:#1b251c;border:1px solid var(--line);color:#dce6d9;border-radius:10px;padding:10px 17px}.tab.active{background:var(--accent);color:#18200e;font-weight:bold;border-color:var(--accent)}.view{display:none}.view.active{display:block}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:0 0 20px}.card{border:1px solid var(--line);background:var(--panel);border-radius:15px;padding:18px}.card small{color:var(--muted)}.number{font-size:25px;font-weight:bold;margin-top:5px;direction:ltr;text-align:right}.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}.panelhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px;flex-wrap:wrap}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:right;min-width:600px}th,td{padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:normal}tr:last-child td{border-bottom:0}input,select{width:100%;background:#0c130f;border:1px solid #364839;border-radius:9px;color:var(--text);padding:11px;min-width:0}input:focus,select:focus{outline:2px solid #78ae4a}label{display:grid;gap:5px;font-size:13px;color:#d1decf}.form{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.btn{background:var(--accent);color:#142008;border:0;border-radius:10px;padding:11px 17px;font-weight:bold}.btn.ghost{background:#263327;color:var(--text);border:1px solid var(--line)}.btn.danger{background:#3e2929;color:#ffbfbf}.full{grid-column:1/-1}.stack{display:grid;gap:13px}.notice{border:1px dashed #536b44;background:#1a2818;padding:12px;border-radius:10px;color:#c9dfa8;font-size:13px;margin-bottom:17px}.chat{border:1px solid var(--line);border-radius:12px;background:#111712;min-height:280px;max-height:440px;overflow:auto;padding:15px;display:flex;flex-direction:column;gap:12px}.bubble{padding:12px 14px;border-radius:12px;max-width:83%;white-space:pre-wrap;font-size:14px}.bubble.user{background:#28402c;align-self:flex-start}.bubble.bot{background:#242b25;align-self:flex-end}.chatrow{display:flex;gap:9px;margin-top:12px}.chatrow input{flex:1}.chatrow button{white-space:nowrap}.foot{color:var(--muted);font-size:12px;margin:24px 0 8px;text-align:center}.empty{color:var(--muted);padding:22px 0}.tag{color:#b5df8d}.headline{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px}ul{margin:0;padding-right:21px}.help{font-size:12px;color:var(--muted);margin-top:8px}@media(max-width:850px){.metrics{grid-template-columns:repeat(2,1fr)}.grid,.form{grid-template-columns:1fr}.app{padding:12px}.card{padding:13px}h1{font-size:20px}.number{font-size:20px}}@media(max-width:400px){.metrics{grid-template-columns:1fr 1fr}.chatrow{flex-wrap:wrap}.chatrow button{width:100%}}
 
 .auth-wrap{max-width:440px;margin:8vh auto}.hidden{display:none!important}.status{padding:10px;border-radius:9px;background:#1b291c;margin:10px 0;color:#d4edc3}.error{background:#382626;color:#ffbdba}.config{background:#2b291b;color:#f9daa4}.top-actions{display:flex;align-items:center;gap:10px}.btn:disabled{opacity:.5;cursor:not-allowed}
@@ -11,13 +11,24 @@
 .smart-settings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) auto;gap:10px;align-items:end}.smart-settings .btn{white-space:nowrap}.smart-alerts-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.smart-alert-card{background:#111912;border:1px solid var(--line);border-radius:12px;padding:14px}.smart-alert-card small{display:block;color:var(--muted);margin-bottom:5px}.smart-alert-card strong{font-size:22px}.smart-alert-card.danger{border-color:#7a3e3e;background:#241717}.smart-alert-card.warn{border-color:#725c2e;background:#231e12}.alert-chip{display:inline-block;border-radius:100px;padding:3px 8px;font-size:11px;margin:2px;background:#283527;color:#cbeab0}.alert-chip.danger{background:#472626;color:#ffc1bd}.alert-chip.warn{background:#44351f;color:#ffd99c}.smart-columns{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}.margin-low{color:#ffa9a9;font-weight:bold}.margin-ok{color:#baf38f}.settings-msg{font-size:12px;color:#c9dfa8}@media(max-width:900px){.smart-alerts-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.smart-columns{grid-template-columns:1fr}}@media(max-width:600px){.smart-settings{grid-template-columns:1fr}.smart-alerts-grid{grid-template-columns:1fr 1fr}}
 
 .manager-card{border-color:#49633c;background:linear-gradient(180deg,#172318,#141c15)}.manager-toolbar{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.manager-endpoint{display:grid;grid-template-columns:minmax(220px,1fr) auto;gap:8px;align-items:end}.manager-health{display:inline-flex;align-items:center;gap:7px;border-radius:100px;padding:6px 11px;font-size:12px;width:max-content}.manager-health.good{background:#20381f;color:#bdf29a}.manager-health.attention{background:#49391e;color:#ffdc98}.manager-health.warning{background:#492525;color:#ffc0bc}.manager-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.manager-box{background:#101811;border:1px solid var(--line);border-radius:11px;padding:13px}.manager-box h3{font-size:14px;margin-bottom:7px;color:#ccebb3}.manager-box p{white-space:pre-wrap}.manager-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.manager-stat{background:#101811;border:1px solid var(--line);border-radius:10px;padding:11px}.manager-stat small{display:block;color:var(--muted);font-size:11px}.manager-stat strong{display:block;margin-top:3px;font-size:17px}.manager-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}.manager-columns ul{display:grid;gap:7px}.manager-best{border:1px dashed #587443;border-radius:10px;padding:11px;background:#182518}.manager-msg{font-size:12px;color:#c9dfa8}.manager-empty{padding:16px;border:1px dashed var(--line);border-radius:10px;color:var(--muted);text-align:center}@media(max-width:950px){.manager-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.manager-grid,.manager-columns,.manager-endpoint{grid-template-columns:1fr}.manager-endpoint .btn{width:100%}}
+
+.crm-toolbar{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.crm-filters{display:grid;grid-template-columns:minmax(220px,1fr) 180px auto;gap:8px;align-items:end;flex:1}
+.crm-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.crm-metric{background:#101811;border:1px solid var(--line);border-radius:12px;padding:13px}.crm-metric small{display:block;color:var(--muted)}.crm-metric strong{display:block;font-size:21px;margin-top:4px}
+.customer-type{display:inline-block;padding:3px 8px;border-radius:100px;font-size:11px}.customer-type.lead{background:#263027;color:#c6d4c3}.customer-type.new{background:#28402c;color:#c6f0b0}.customer-type.repeat{background:#3b3320;color:#ffdf9e}
+.crm-layout{display:grid;grid-template-columns:1fr;gap:16px}.customer-profile{border-color:#4a633d}.profile-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}.profile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.profile-grid .wide{grid-column:span 3}.profile-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.profile-stat{background:#101811;border:1px solid var(--line);border-radius:10px;padding:11px}.profile-stat small{display:block;color:var(--muted);font-size:11px}.profile-stat strong{display:block;font-size:17px;margin-top:3px}
+.crm-columns{display:grid;grid-template-columns:1fr 1fr;gap:14px}.link-box{border:1px dashed #526b45;background:#152116;border-radius:11px;padding:12px;display:grid;gap:9px}.link-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end}
+.customer-name-btn{background:none;border:0;color:#dff6ca;padding:0;font-weight:bold;text-decoration:underline;text-decoration-style:dotted}.customer-name-btn:hover{color:var(--accent)}
+.crm-message{font-size:12px;color:#c9dfa8}
+@media(max-width:900px){.crm-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.crm-columns,.profile-grid{grid-template-columns:1fr}.profile-grid .wide{grid-column:auto}.crm-filters{grid-template-columns:1fr}.link-row{grid-template-columns:1fr}}
 </style></head><body>
 <main class="app">
-<header class="top"><div class="logo"><div class="mark">R</div><div><h1>RavenLab AI</h1><div class="sub">لوحة إدارة متصلة بـSupabase • v1.4</div></div></div><div class="top-actions"><span class="pill">● غير مرتبط بإنستغرام بعد</span><button id="logout" class="btn ghost hidden">تسجيل خروج</button></div></header>
+<header class="top"><div class="logo"><div class="mark">R</div><div><h1>RavenLab AI</h1><div class="sub">لوحة إدارة متصلة بـSupabase • v1.5</div></div></div><div class="top-actions"><span class="pill">● غير مرتبط بإنستغرام بعد</span><button id="logout" class="btn ghost hidden">تسجيل خروج</button></div></header>
 <section id="setup" class="auth-wrap hidden"><div class="card stack"><h2>إعداد اتصال Supabase</h2><div class="notice">أدخل فقط Project URL وPublishable Key أو مفتاح anon العام. لا تدخل service_role أو secret key إطلاقاً.</div><form id="configForm" class="stack"><label>Project URL<input id="sbUrl" type="url" required placeholder="https://xxxxx.supabase.co"></label><label>Publishable / anon key<input id="sbKey" required placeholder="sb_publishable_... أو eyJ..."></label><button class="btn">حفظ الاتصال بهذا المتصفح</button></form><p class="help">يمكن لاحقاً وضع القيم العامة في ملف config.js. تحفظ إعدادات الاتصال العامة في هذا المتصفح فقط.</p></div></section>
 <section id="auth" class="auth-wrap hidden"><div class="card stack"><h2>تسجيل دخول المدير</h2><div class="notice">استخدم البريد وكلمة المرور اللذين أنشأتهما في Supabase Authentication.</div><form id="loginForm" class="stack"><label>البريد الإلكتروني<input type="email" name="email" autocomplete="username" required></label><label>كلمة المرور<input type="password" name="password" autocomplete="current-password" required></label><button class="btn" type="submit">تسجيل الدخول</button></form><button id="changeConfig" class="btn ghost" type="button">تعديل اتصال Supabase</button></div></section>
 <section id="app" class="hidden"><div id="notice" class="status">جار التحميل...</div>
-<nav class="tabs" id="tabs"><button class="tab active" data-tab="overview">نظرة عامة</button><button class="tab" data-tab="products">المنتجات</button><button class="tab" data-tab="orders">الطلبات</button><button class="tab" data-tab="expenses">المصاريف</button><button class="tab" data-tab="knowledge">معرفة المنتجات</button><button class="tab" data-tab="insights">تحليل المحادثات</button><button class="tab" data-tab="assistant">الإيجنت</button></nav>
+<nav class="tabs" id="tabs"><button class="tab active" data-tab="overview">نظرة عامة</button><button class="tab" data-tab="products">المنتجات</button><button class="tab" data-tab="orders">الطلبات</button><button class="tab" data-tab="customers">العملاء</button><button class="tab" data-tab="expenses">المصاريف</button><button class="tab" data-tab="knowledge">معرفة المنتجات</button><button class="tab" data-tab="insights">تحليل المحادثات</button><button class="tab" data-tab="assistant">الإيجنت</button></nav>
 <section class="view active" id="overview"><div class="card stack"><div class="drafts-toolbar"><div><h2>لوحة المبيعات والأرباح</h2><p class="help">الأرباح هنا إجمالية قبل المصاريف العامة، والصافي التقريبي يطرح المصاريف المسجلة في النظام.</p></div><button type="button" id="reloadAnalytics" class="btn ghost">تحديث الإحصائيات</button></div><div class="metrics" id="metrics"></div><div class="analytics-grid" id="periodMetrics"></div></div>
 <div class="card stack overview-note manager-card"><div class="manager-toolbar"><div><h2>مساعد المدير الذكي</h2><p class="help">يحلل بيانات RavenLab المجمعة فقط ويعطيك أولوية وتنبيهات وتوصيات. التحليل لا ينفذ أي إجراء ولا يغيّر الأسعار أو الطلبات.</p></div><button type="button" id="runManagerAI" class="btn">حلّل الآن</button></div><div class="manager-endpoint"><label>Endpoint مساعد المدير<input id="managerEndpoint" autocomplete="off" spellcheck="false" placeholder="ravenlab-manager-insights"></label><button type="button" id="saveManagerEndpoint" class="btn ghost">حفظ Endpoint</button></div><p class="help">اكتب فقط آخر جزء بعد <span class="tag">/functions/v1/</span>. إذا كان Supabase نشر الوظيفة باسم مختلف مثل dynamic-action، استخدم الاسم الفعلي هنا.</p><p id="managerMessage" class="manager-msg" aria-live="polite"></p><div id="managerEmpty" class="manager-empty">اضغط «حلّل الآن» للحصول على قراءة إدارية حديثة من Gemini.</div><div id="managerResult" class="stack hidden"><div id="managerHealth" class="manager-health"></div><div class="manager-stats" id="managerStats"></div><div class="manager-grid"><div class="manager-box"><h3>ملخص الوضع</h3><p id="managerSummary"></p></div><div class="manager-box"><h3>الأولوية الحالية</h3><p id="managerPriority"></p></div></div><div class="manager-columns"><div class="manager-box"><h3>تنبيهات المدير</h3><ul id="managerAlerts"></ul></div><div class="manager-box"><h3>التوصيات</h3><ul id="managerRecommendations"></ul></div></div><div id="managerBest" class="manager-best"></div></div></div>
 <div class="card stack overview-note"><div><h2>التنبيهات الذكية</h2><p class="help">يعتبر الطلب متأخراً حسب عدد الأيام بدون تحديث. تنبيه هامش الربح يعتمد على النسبة التي تحددها أدناه.</p></div><div class="smart-settings"><label>تنبيه التأخير بعد (أيام)<input id="alertOverdueDays" type="number" min="1" max="365" step="1"></label><label>تنبيه هامش الربح أقل من (%)<input id="alertLowMargin" type="number" min="0" max="100" step="0.1"></label><button type="button" id="saveAlertSettings" class="btn">حفظ الإعدادات</button></div><p id="alertSettingsMessage" class="settings-msg" aria-live="polite"></p><div id="smartAlertCards" class="smart-alerts-grid"></div></div>
@@ -25,6 +36,72 @@
 <div class="grid"><div class="card"><h2>حالات الطلبات</h2><div class="status-board" id="statusBoard"></div></div><div class="card"><h2>أحدث الطلبات</h2><div class="tablewrap" id="latest"></div></div></div><div class="card overview-note"><h2>ملخص مالي للطلبات الرسمية</h2><div class="tablewrap" id="financialTable"></div><div id="alerts" class="stack" style="margin-top:10px"></div></div></section>
 <section class="view" id="products"><h2>المنتجات</h2><div class="card stack"><form id="productForm" class="form"><label>اسم المنتج<input name="name" maxlength="100" required></label><label>السعر (د.ع)<input name="price" type="number" min="0" step="1" required></label><label>التكلفة (د.ع)<input name="cost" type="number" min="0" step="1" required></label><button class="btn full">إضافة المنتج</button></form><div class="tablewrap" id="productsTable"></div></div></section>
 <section class="view" id="orders"><h2>الطلبات</h2><div class="card stack official-orders"><div class="drafts-toolbar"><h2>الطلبات الرسمية</h2><button type="button" id="reloadOfficialOrders" class="btn ghost">تحديث الطلبات</button></div><div class="notice">غيّر حالة الطلب حسب سير العمل: جديد ← قيد التصميم ← جاهز للطباعة ← قيد الطباعة ← جاهز ← تم التسليم. الربح المعروض = قيمة المنتجات − تكلفة المنتجات، ولا يشمل المصاريف العامة أو رسوم التوصيل.</div><div class="tablewrap" id="officialOrdersTable"><p class="empty">لا توجد طلبات رسمية بعد.</p></div><p id="officialOrdersMessage" class="help" aria-live="polite"></p></div><div class="card stack saved-drafts"><div class="drafts-toolbar"><h2>مسودات الإيجنت المحفوظة</h2><button type="button" id="reloadSavedDrafts" class="btn ghost">تحديث المسودات</button></div><div class="notice">المسودات لا تتحول إلى طلب رسمي إلا بعد موافقة المدير والتحقق من سعر المنتج والباقة والتصميم بواسطة Supabase. لا يتم خصم المخزون أو إرسال رسائل تلقائياً.</div><div class="review-endpoint"><label>رابط وظيفة المراجعة (اسم Endpoint فقط)<input id="reviewEndpoint" autocomplete="off" spellcheck="false" placeholder="ravenlab-order-review"></label><button type="button" id="saveReviewEndpoint" class="btn ghost">حفظ الرابط</button><small>إذا ظهر اسم مختلف في Supabase → Edge Functions → Overview فاكتب آخر جزء من الرابط هنا. لا تضع أي مفاتيح أو رموز جلسات.</small></div><div class="tablewrap" id="savedDraftsTable"><p class="empty">افتح التبويب لعرض المسودات.</p></div><div id="reviewEditor" class="review-editor hidden"><h3 id="reviewTitle">تعديل مسودة</h3><p class="help">أي تغيير يعيد حساب السعر من Supabase بواسطة وظيفة المراجعة.</p><form id="reviewForm" class="form"><label>الاسم المرجعي<input id="reviewLabel" maxlength="150"></label><label>المنتج<select id="reviewProduct"><option value="">غير محدد</option></select></label><label>الخيار<select id="reviewVariant"><option value="">غير محدد</option></select></label><label>الكمية<input id="reviewQuantity" type="number" min="1" max="100000" step="1" placeholder="الكمية"></label><label>الألوان<input id="reviewColors" maxlength="500"></label><label>ملاحظات التخصيص<textarea id="reviewNotes" maxlength="500" rows="3"></textarea></label><label>حالة التصميم<select id="reviewDesign"><option value="pending">بانتظار التصميم / المراجعة</option><option value="received">تم الاستلام</option><option value="approved">تمت مراجعة التصميم</option><option value="not_required">غير مطلوب</option></select></label><div class="review-buttons"><button type="submit" class="btn" id="reviewSave">حفظ التعديلات</button><button type="button" class="btn ghost" id="reviewCancel">إلغاء</button></div></form></div><p id="savedDraftsMessage" class="help" aria-live="polite"></p></div><div class="card stack"><p class="help">للنسخة الأولى: سجل طلب اختبار باسم مستعار. إضافة العملاء بأرقامهم وعناوينهم ستكون بعد تجهيز الخصوصية والتحقق من الحقول.</p><form id="orderForm" class="form"><label>اسم مستعار<input name="customer" required maxlength="100" placeholder="عميل اختبار 01"></label><label>المنتج<select name="product" id="productSelect" required></select></label><label>الكمية<input name="qty" type="number" min="1" step="1" required value="1"></label><label>التوصيل<input name="delivery" type="number" min="0" step="1" value="5000" required></label><label>الحالة<select name="status"><option value="new">جديد</option><option value="design">قيد التصميم</option><option value="ready_to_print">جاهز للطباعة</option><option value="printing">قيد الطباعة</option><option value="ready">جاهز</option><option value="delivered">تم التسليم</option><option value="cancelled">ملغي</option></select></label><button class="btn full">حفظ الطلب</button></form><div class="tablewrap" id="ordersTable"></div></div></section>
+
+<section class="view" id="customers"><h2>العملاء — CRM</h2>
+<div class="card stack">
+  <div class="crm-toolbar">
+    <div><h2>قاعدة العملاء</h2><p class="help">الهاتف والعنوان للاستخدام الإداري فقط ولا يتم إرسالهما إلى Gemini أو مساعد المدير.</p></div>
+    <button type="button" id="reloadCustomers" class="btn ghost">تحديث العملاء</button>
+  </div>
+  <div class="crm-metrics" id="crmMetrics"></div>
+  <div class="crm-filters">
+    <label>بحث<input id="customerSearch" placeholder="الاسم، Instagram ID، المحافظة..." autocomplete="off"></label>
+    <label>نوع العميل<select id="customerTypeFilter"><option value="all">الكل</option><option value="repeat">متكرر</option><option value="new">جديد</option><option value="lead">Lead</option></select></label>
+    <button type="button" id="clearCustomerFilters" class="btn ghost">مسح التصفية</button>
+  </div>
+  <div class="tablewrap" id="customersTable"><p class="empty">جار تحميل العملاء...</p></div>
+  <p id="customersMessage" class="crm-message" aria-live="polite"></p>
+</div>
+
+<div class="card stack">
+  <h2>إضافة عميل</h2>
+  <form id="customerForm" class="form">
+    <label>الاسم<input name="name" maxlength="150" placeholder="اسم العميل"></label>
+    <label>Instagram ID<input name="instagram_id" maxlength="150" placeholder="@username أو ID"></label>
+    <label>الهاتف<input name="phone" maxlength="50" placeholder="اختياري"></label>
+    <label>المحافظة<input name="governorate" maxlength="100" placeholder="اختياري"></label>
+    <label>العنوان<input name="address" maxlength="300" placeholder="اختياري"></label>
+    <label>ملاحظات<input name="notes" maxlength="500" placeholder="ملاحظات داخلية"></label>
+    <button class="btn full" type="submit">إضافة العميل</button>
+  </form>
+</div>
+
+<div id="customerProfile" class="card stack customer-profile hidden">
+  <div class="profile-head">
+    <div><h2 id="customerProfileTitle">ملف العميل</h2><p id="customerProfileType" class="help"></p></div>
+    <button type="button" id="closeCustomerProfile" class="btn ghost">إغلاق الملف</button>
+  </div>
+  <div id="customerProfileStats" class="profile-stats"></div>
+  <form id="customerProfileForm" class="profile-grid">
+    <label>الاسم<input id="profileName" maxlength="150"></label>
+    <label>Instagram ID<input id="profileInstagram" maxlength="150"></label>
+    <label>الهاتف<input id="profilePhone" maxlength="50"></label>
+    <label>المحافظة<input id="profileGovernorate" maxlength="100"></label>
+    <label class="wide">العنوان<input id="profileAddress" maxlength="300"></label>
+    <label class="wide">ملاحظات داخلية<textarea id="profileNotes" maxlength="1000" rows="3"></textarea></label>
+    <button class="btn" type="submit">حفظ بيانات العميل</button>
+  </form>
+  <p id="customerProfileMessage" class="crm-message" aria-live="polite"></p>
+
+  <div class="crm-columns">
+    <div class="stack"><h3>سجل الطلبات الرسمية</h3><div class="tablewrap" id="customerOrdersTable"></div></div>
+    <div class="stack"><h3>المسودات المرتبطة</h3><div class="tablewrap" id="customerDraftsTable"></div></div>
+  </div>
+
+  <div class="crm-columns">
+    <div class="link-box">
+      <h3>ربط طلب رسمي بهذا العميل</h3>
+      <div class="link-row"><label>طلب غير مرتبط<select id="linkOrderSelect"></select></label><button type="button" id="linkOrderBtn" class="btn">ربط الطلب</button></div>
+      <p class="help">الربط لا يغيّر السعر أو حالة الطلب.</p>
+    </div>
+    <div class="link-box">
+      <h3>ربط مسودة بهذا العميل</h3>
+      <div class="link-row"><label>مسودة غير مرتبطة<select id="linkDraftSelect"></select></label><button type="button" id="linkDraftBtn" class="btn">ربط المسودة</button></div>
+      <p class="help">يستخدم فقط لتنظيم CRM ولا يوافق على المسودة تلقائياً.</p>
+    </div>
+  </div>
+</div>
+</section>
 <section class="view" id="expenses"><h2>المصاريف</h2><div class="card stack"><form id="expenseForm" class="form"><label>التصنيف<select name="category"><option>إعلانات</option><option>كهرباء</option><option>تغليف</option><option>فلمنت</option><option>أخرى</option></select></label><label>الوصف<input name="description" maxlength="100"></label><label>القيمة (د.ع)<input name="amount" type="number" min="0" step="1" required></label><button class="btn full">تسجيل مصروف</button></form><div class="tablewrap" id="expensesTable"></div></div></section>
 <section class="view" id="knowledge">
 <div class="card stack"><h2>معرفة المنتجات والباقات</h2>
@@ -59,11 +136,11 @@
   </div>
   <p id="draftHint" class="help" aria-live="polite"></p>
   <p class="help">الذاكرة مؤقتة داخل الصفحة فقط (آخر 16 رسالة). تختفي عند التحديث أو الضغط على محادثة جديدة. لا تدخل بيانات عملاء حقيقية هنا.</p></div></section>
-</section><footer class="foot">RavenLab AI v1.4 • Manager AI + Smart Alerts + Sales Analytics + Supabase • No Instagram connection</footer></main>
+</section><footer class="foot">RavenLab AI v1.5 • Manager AI + Smart Alerts + Sales Analytics + Supabase • No Instagram connection</footer></main>
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const $=id=>document.getElementById(id), money=n=>Math.round(Number(n)||0).toLocaleString('en-US')+' د.ع';
-const CFG='ravenlab-public-config', MANAGER_ENDPOINT_KEY='ravenlab-manager-endpoint';let sb=null, state={products:[],orders:[],expenses:[],financials:[],alertSettings:null,smartAlerts:[]};
+const CFG='ravenlab-public-config', MANAGER_ENDPOINT_KEY='ravenlab-manager-endpoint';let sb=null, state={products:[],orders:[],expenses:[],financials:[],alertSettings:null,smartAlerts:[],customers:[],crm:[],customerDrafts:[]};
 const statuses={new:'جديد',design:'قيد التصميم',ready_to_print:'جاهز للطباعة',printing:'قيد الطباعة',ready:'جاهز',delivered:'تم التسليم',cancelled:'ملغي'};
 const orderStatusFlow=['new','design','ready_to_print','printing','ready','delivered'];
 const el=(tag,txt,cls)=>{let n=document.createElement(tag);if(txt!==undefined)n.textContent=String(txt);if(cls)n.className=cls;return n};
@@ -176,8 +253,110 @@ function renderAnalytics(){
     el('p','الصافي المعروض تقريبي: الربح الإجمالي من المنتجات ناقص المصاريف المسجلة. رسوم التوصيل لا تُحسب كربح منتج.')
   );
 }
-function render(){const {products,orders,expenses}=state;renderAnalytics();table('latest',['رقم الطلب','المنتج','الحالة'],orders.slice(0,5).map(o=>['#'+o.id,orderDescription(o),statuses[o.status]||o.status]));table('productsTable',['المنتج','السعر','التكلفة'],products.map(p=>[p.name,money(p.price_iqd),money(p.cost_iqd)]));table('ordersTable',['الرقم','المنتج','الكمية','القيمة مع التوصيل','الحالة'],orders.map(o=>{const x=orderTotals(o);return ['#'+o.id,orderDescription(o),x.qty,money(x.sale+Number(o.delivery_fee_iqd||0)),statuses[o.status]||o.status]}));renderOfficialOrders();table('expensesTable',['الفئة','الوصف','القيمة'],expenses.map(e=>[e.category,e.description||'—',money(e.amount_iqd)]));let s=$('productSelect'),old=s.value;s.replaceChildren(...products.map(p=>{let opt=el('option',p.name);opt.value=p.id;return opt}));if(products.some(p=>String(p.id)===old))s.value=old;}
-async function refresh(){const reqs=[sb.from('products').select('*').order('id',{ascending:false}),sb.from('orders').select('id,status,source_draft_id,delivery_fee_iqd,notes,created_at,updated_at,completed_at,cancelled_at,order_items(product_id,quantity,unit_price_iqd,unit_cost_iqd)').order('id',{ascending:false}),sb.from('expenses').select('*').order('id',{ascending:false}),sb.from('order_financial_summary').select('*').order('created_at',{ascending:false}),sb.from('alert_settings').select('id,overdue_days,low_margin_percent').order('id',{ascending:true}).limit(1).maybeSingle(),sb.from('order_smart_alerts').select('*').order('updated_at',{ascending:true})];let results=await Promise.all(reqs);let err=results.find(x=>x.error)?.error;if(err)throw err;state={products:results[0].data||[],orders:results[1].data||[],expenses:results[2].data||[],financials:results[3].data||[],alertSettings:results[4].data||null,smartAlerts:results[5].data||[]};render();msg('✓ متصل بقاعدة بيانات Supabase — RavenLab AI v1.4 محدث')}
+function render(){const {products,orders,expenses}=state;renderAnalytics();renderCustomers();table('latest',['رقم الطلب','المنتج','الحالة'],orders.slice(0,5).map(o=>['#'+o.id,orderDescription(o),statuses[o.status]||o.status]));table('productsTable',['المنتج','السعر','التكلفة'],products.map(p=>[p.name,money(p.price_iqd),money(p.cost_iqd)]));table('ordersTable',['الرقم','المنتج','الكمية','القيمة مع التوصيل','الحالة'],orders.map(o=>{const x=orderTotals(o);return ['#'+o.id,orderDescription(o),x.qty,money(x.sale+Number(o.delivery_fee_iqd||0)),statuses[o.status]||o.status]}));renderOfficialOrders();table('expensesTable',['الفئة','الوصف','القيمة'],expenses.map(e=>[e.category,e.description||'—',money(e.amount_iqd)]));let s=$('productSelect'),old=s.value;s.replaceChildren(...products.map(p=>{let opt=el('option',p.name);opt.value=p.id;return opt}));if(products.some(p=>String(p.id)===old))s.value=old;}
+async function refresh(){
+  const reqs=[
+    sb.from('products').select('*').order('id',{ascending:false}),
+    sb.from('orders').select('id,customer_id,status,source_draft_id,delivery_fee_iqd,notes,created_at,updated_at,completed_at,cancelled_at,order_items(product_id,quantity,unit_price_iqd,unit_cost_iqd)').order('id',{ascending:false}),
+    sb.from('expenses').select('*').order('id',{ascending:false}),
+    sb.from('order_financial_summary').select('*').order('created_at',{ascending:false}),
+    sb.from('alert_settings').select('id,overdue_days,low_margin_percent').order('id',{ascending:true}).limit(1).maybeSingle(),
+    sb.from('order_smart_alerts').select('*').order('updated_at',{ascending:true}),
+    sb.from('customers').select('id,instagram_id,name,phone,governorate,address,notes,created_at').order('created_at',{ascending:false}),
+    sb.from('customer_crm_summary').select('*').order('lifetime_revenue_iqd',{ascending:false}),
+    sb.from('order_drafts').select('id,customer_id,customer_label,product_name,quantity,quoted_price_iqd,status,created_at').order('created_at',{ascending:false}).limit(300)
+  ];
+  let results=await Promise.all(reqs);
+  let err=results.find(x=>x.error)?.error;if(err)throw err;
+  state={
+    products:results[0].data||[],
+    orders:results[1].data||[],
+    expenses:results[2].data||[],
+    financials:results[3].data||[],
+    alertSettings:results[4].data||null,
+    smartAlerts:results[5].data||[],
+    customers:results[6].data||[],
+    crm:results[7].data||[],
+    customerDrafts:results[8].data||[]
+  };
+  render();
+  msg('✓ متصل بقاعدة بيانات Supabase — RavenLab AI v1.5 محدث');
+}
+
+let selectedCustomerId=null;
+const customerTypeNames={lead:'Lead',new:'جديد',repeat:'متكرر'};
+function safeDate(value){if(!value)return '—';const d=new Date(value);return Number.isNaN(d.getTime())?'—':d.toLocaleDateString('ar-IQ',{year:'numeric',month:'short',day:'numeric'});}
+function customerSummaryById(id){return (state.crm||[]).find(x=>String(x.customer_id)===String(id))||null;}
+function customerRowData(c){const s=customerSummaryById(c.id)||{};return {...c,...s,customer_id:c.id};}
+function crmSetMessage(text,isError=false){const n=$('customersMessage');if(!n)return;n.textContent=text||'';n.style.color=isError?'#ffa9a9':'#c9dfa8';}
+function profileSetMessage(text,isError=false){const n=$('customerProfileMessage');if(!n)return;n.textContent=text||'';n.style.color=isError?'#ffa9a9':'#c9dfa8';}
+function customerTypeBadge(type){const span=el('span',customerTypeNames[type]||type||'Lead','customer-type '+(type||'lead'));return span;}
+function customerMetric(label,value){const box=el('div',undefined,'crm-metric');box.append(el('small',label),el('strong',value));return box;}
+function profileStat(label,value){const box=el('div',undefined,'profile-stat');box.append(el('small',label),el('strong',value));return box;}
+function currentCustomer(){return (state.customers||[]).find(c=>String(c.id)===String(selectedCustomerId))||null;}
+function renderCustomers(){
+  const customers=state.customers||[],crm=state.crm||[];
+  const counts={repeat:0,new:0,lead:0};for(const r of crm)counts[r.customer_type]=(counts[r.customer_type]||0)+1;
+  if($('crmMetrics'))$('crmMetrics').replaceChildren(
+    customerMetric('إجمالي العملاء',String(customers.length)),
+    customerMetric('عملاء متكررون',String(counts.repeat||0)),
+    customerMetric('عملاء جدد',String(counts.new||0)),
+    customerMetric('Leads',String(counts.lead||0))
+  );
+  const q=($('customerSearch')?.value||'').trim().toLowerCase();
+  const type=$('customerTypeFilter')?.value||'all';
+  const rows=customers.map(customerRowData).filter(c=>{
+    if(type!=='all'&&(c.customer_type||'lead')!==type)return false;
+    if(!q)return true;
+    return [c.name,c.instagram_id,c.governorate,String(c.customer_id)].some(v=>String(v||'').toLowerCase().includes(q));
+  });
+  const root=$('customersTable');if(!root)return;root.replaceChildren();
+  if(!rows.length){root.append(el('p','لا توجد نتائج مطابقة.','empty'));}else{
+    const t=el('table'),h=el('thead'),hr=el('tr');['العميل','Instagram','النوع','الطلبات','النشطة','المشتريات','الربح','آخر طلب','الملف'].forEach(x=>hr.append(el('th',x)));h.append(hr);t.append(h);const b=el('tbody');
+    for(const c of rows){
+      const tr=el('tr');
+      tr.append(el('td',c.name||('عميل #'+c.customer_id)),el('td',c.instagram_id||'—'));
+      const typeTd=el('td');typeTd.append(customerTypeBadge(c.customer_type||'lead'));tr.append(typeTd);
+      tr.append(el('td',String(Number(c.orders_count)||0)),el('td',String(Number(c.active_orders)||0)),el('td',money(c.lifetime_revenue_iqd)),el('td',money(c.lifetime_gross_profit_iqd)),el('td',safeDate(c.last_order_at)));
+      const action=el('td'),btn=el('button','فتح الملف','btn ghost');btn.type='button';btn.dataset.customerOpen=c.customer_id;action.append(btn);tr.append(action);b.append(tr);
+    }t.append(b);root.append(t);
+  }
+  if(selectedCustomerId){
+    if(currentCustomer())renderCustomerProfile();
+    else closeCustomerProfile();
+  }
+}
+function renderCustomerProfile(){
+  const c=currentCustomer();if(!c)return closeCustomerProfile();
+  const s=customerSummaryById(c.id)||{};
+  $('customerProfile').classList.remove('hidden');
+  $('customerProfileTitle').textContent=(c.name||('عميل #'+c.id))+' — ملف العميل';
+  $('customerProfileType').replaceChildren(customerTypeBadge(s.customer_type||'lead'),document.createTextNode(' • آخر طلب: '+safeDate(s.last_order_at)));
+  $('customerProfileStats').replaceChildren(
+    profileStat('عدد الطلبات',String(Number(s.orders_count)||0)),
+    profileStat('طلبات نشطة',String(Number(s.active_orders)||0)),
+    profileStat('طلبات مكتملة',String(Number(s.delivered_orders)||0)),
+    profileStat('إجمالي المشتريات',money(s.lifetime_revenue_iqd)),
+    profileStat('الربح الإجمالي',money(s.lifetime_gross_profit_iqd))
+  );
+  $('profileName').value=c.name||'';$('profileInstagram').value=c.instagram_id||'';$('profilePhone').value=c.phone||'';$('profileGovernorate').value=c.governorate||'';$('profileAddress').value=c.address||'';$('profileNotes').value=c.notes||'';
+  const orders=(state.orders||[]).filter(o=>String(o.customer_id)===String(c.id));
+  table('customerOrdersTable',['الطلب','المنتجات','القيمة','الحالة','التاريخ'],orders.map(o=>{const x=orderTotals(o);return ['#'+o.id,orderDescription(o),money(x.sale+Number(o.delivery_fee_iqd||0)),statuses[o.status]||o.status,safeDate(o.created_at)]}));
+  const drafts=(state.customerDrafts||[]).filter(d=>String(d.customer_id)===String(c.id));
+  table('customerDraftsTable',['المسودة','المنتج','الكمية','السعر','الحالة'],drafts.map(d=>['#'+d.id,d.product_name||'—',String(d.quantity??'—'),d.quoted_price_iqd==null?'—':money(d.quoted_price_iqd),d.status||'—']));
+  const unlinkedOrders=(state.orders||[]).filter(o=>o.customer_id==null);
+  $('linkOrderSelect').replaceChildren(...(unlinkedOrders.length?unlinkedOrders.map(o=>new Option('#'+o.id+' — '+orderDescription(o),String(o.id))):[new Option('لا توجد طلبات غير مرتبطة','')]));
+  $('linkOrderBtn').disabled=!unlinkedOrders.length;
+  const unlinkedDrafts=(state.customerDrafts||[]).filter(d=>d.customer_id==null);
+  $('linkDraftSelect').replaceChildren(...(unlinkedDrafts.length?unlinkedDrafts.map(d=>new Option('#'+d.id+' — '+(d.product_name||d.customer_label||'مسودة'),String(d.id))):[new Option('لا توجد مسودات غير مرتبطة','')]));
+  $('linkDraftBtn').disabled=!unlinkedDrafts.length;
+}
+function openCustomerProfile(id){selectedCustomerId=Number(id);profileSetMessage('');renderCustomerProfile();$('customerProfile').scrollIntoView({behavior:'smooth',block:'start'});}
+function closeCustomerProfile(){selectedCustomerId=null;if($('customerProfile'))$('customerProfile').classList.add('hidden');}
+async function reloadCustomerData(message='✓ تم تحديث بيانات العملاء.'){
+  crmSetMessage('جار تحديث بيانات العملاء...');
+  try{await refresh();crmSetMessage(message);}catch(err){crmSetMessage('تعذر تحديث العملاء: '+(err?.message||String(err)),true);}
+}
 async function authenticate(){let {data:{user},error}=await sb.auth.getUser();if(error||!user){show('auth');return}let adm=await sb.from('admin_users').select('user_id').eq('user_id',user.id).maybeSingle();if(adm.error||!adm.data){await sb.auth.signOut();show('auth');alert('هذا الحساب ليس ضمن المدراء المصرح لهم.');return}show('app');$('logout').classList.remove('hidden');try{await refresh()}catch(e){msg('خطأ في قراءة قاعدة البيانات: '+e.message,true)}}
 function connect(url,key){sb=createClient(url,key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}})}
 function init(){let c;try{c=JSON.parse(localStorage.getItem(CFG))}catch{}if(!c?.url||!c?.key){show('setup');return}try{connect(c.url,c.key);authenticate()}catch(e){show('setup');alert('إعداد اتصال غير صالح: '+e.message)}}
@@ -185,6 +364,77 @@ $('configForm').addEventListener('submit',e=>{e.preventDefault();let url=$('sbUr
 $('loginForm').addEventListener('submit',async e=>{e.preventDefault();let f=new FormData(e.target),b=e.target.querySelector('button');b.disabled=true;try{let {error}=await sb.auth.signInWithPassword({email:String(f.get('email')),password:String(f.get('password'))});if(error)throw error;await authenticate()}catch(e){alert('تعذر تسجيل الدخول: '+e.message)}finally{b.disabled=false}});
 $('logout').addEventListener('click',async()=>{if(sb)await sb.auth.signOut();location.reload()});$('changeConfig').addEventListener('click',()=>{localStorage.removeItem(CFG);location.reload()});
 $('tabs').addEventListener('click',e=>{let b=e.target.closest('[data-tab]');if(!b)return;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===b.dataset.tab))});
+
+$('customersTable')?.addEventListener('click',e=>{const b=e.target.closest('[data-customer-open]');if(b)openCustomerProfile(b.dataset.customerOpen);});
+$('customerSearch')?.addEventListener('input',renderCustomers);
+$('customerTypeFilter')?.addEventListener('change',renderCustomers);
+$('clearCustomerFilters')?.addEventListener('click',()=>{$('customerSearch').value='';$('customerTypeFilter').value='all';renderCustomers();});
+$('reloadCustomers')?.addEventListener('click',()=>reloadCustomerData());
+$('closeCustomerProfile')?.addEventListener('click',closeCustomerProfile);
+$('tabs')?.addEventListener('click',e=>{if(e.target.closest('[data-tab="customers"]'))renderCustomers();});
+$('customerForm')?.addEventListener('submit',async e=>{
+  e.preventDefault();const b=e.target.querySelector('button');b.disabled=true;crmSetMessage('جار إضافة العميل...');
+  try{
+    const f=new FormData(e.target);const payload={
+      name:String(f.get('name')||'').trim()||null,
+      instagram_id:String(f.get('instagram_id')||'').trim()||null,
+      phone:String(f.get('phone')||'').trim()||null,
+      governorate:String(f.get('governorate')||'').trim()||null,
+      address:String(f.get('address')||'').trim()||null,
+      notes:String(f.get('notes')||'').trim()||null
+    };
+    if(!payload.name&&!payload.instagram_id)throw Error('أدخل اسم العميل أو Instagram ID على الأقل.');
+    if(payload.instagram_id){
+      const exists=(state.customers||[]).some(c=>String(c.instagram_id||'').toLowerCase()===payload.instagram_id.toLowerCase());
+      if(exists)throw Error('Instagram ID موجود مسبقاً في قاعدة العملاء.');
+    }
+    const {data,error}=await sb.from('customers').insert(payload).select('id').single();if(error)throw error;
+    e.target.reset();await refresh();openCustomerProfile(data.id);crmSetMessage('✓ تمت إضافة العميل.');
+  }catch(err){crmSetMessage('تعذر إضافة العميل: '+(err?.message||String(err)),true);}
+  finally{b.disabled=false;}
+});
+$('customerProfileForm')?.addEventListener('submit',async e=>{
+  e.preventDefault();const c=currentCustomer();if(!c)return;const b=e.target.querySelector('button');b.disabled=true;profileSetMessage('جار حفظ بيانات العميل...');
+  try{
+    const payload={
+      name:$('profileName').value.trim()||null,
+      instagram_id:$('profileInstagram').value.trim()||null,
+      phone:$('profilePhone').value.trim()||null,
+      governorate:$('profileGovernorate').value.trim()||null,
+      address:$('profileAddress').value.trim()||null,
+      notes:$('profileNotes').value.trim()||null
+    };
+    if(!payload.name&&!payload.instagram_id)throw Error('لازم يبقى اسم أو Instagram ID واحد على الأقل.');
+    if(payload.instagram_id){
+      const duplicate=(state.customers||[]).some(x=>String(x.id)!==String(c.id)&&String(x.instagram_id||'').toLowerCase()===payload.instagram_id.toLowerCase());
+      if(duplicate)throw Error('Instagram ID مستخدم لعميل آخر.');
+    }
+    const {error}=await sb.from('customers').update(payload).eq('id',c.id);if(error)throw error;
+    await refresh();profileSetMessage('✓ تم حفظ بيانات العميل.');
+  }catch(err){profileSetMessage('تعذر حفظ العميل: '+(err?.message||String(err)),true);}
+  finally{b.disabled=false;}
+});
+$('linkOrderBtn')?.addEventListener('click',async()=>{
+  const c=currentCustomer(),orderId=Number($('linkOrderSelect').value);if(!c||!orderId)return;
+  if(!confirm('ربط الطلب #'+orderId+' بالعميل '+(c.name||('#'+c.id))+'؟'))return;
+  const b=$('linkOrderBtn');b.disabled=true;profileSetMessage('جار ربط الطلب...');
+  try{
+    const {data,error}=await sb.from('orders').update({customer_id:c.id}).eq('id',orderId).is('customer_id',null).select('id').maybeSingle();if(error)throw error;if(!data)throw Error('الطلب مرتبط بعميل آخر أو تغيرت بياناته.');
+    await refresh();profileSetMessage('✓ تم ربط الطلب #'+orderId+' بالعميل.');
+  }catch(err){profileSetMessage('تعذر ربط الطلب: '+(err?.message||String(err)),true);}
+  finally{b.disabled=false;}
+});
+$('linkDraftBtn')?.addEventListener('click',async()=>{
+  const c=currentCustomer(),draftId=Number($('linkDraftSelect').value);if(!c||!draftId)return;
+  if(!confirm('ربط المسودة #'+draftId+' بالعميل '+(c.name||('#'+c.id))+'؟'))return;
+  const b=$('linkDraftBtn');b.disabled=true;profileSetMessage('جار ربط المسودة...');
+  try{
+    const {data,error}=await sb.from('order_drafts').update({customer_id:c.id}).eq('id',draftId).is('customer_id',null).select('id').maybeSingle();if(error)throw error;if(!data)throw Error('المسودة مرتبطة بعميل آخر أو تغيرت بياناتها.');
+    await refresh();profileSetMessage('✓ تم ربط المسودة #'+draftId+' بالعميل.');
+  }catch(err){profileSetMessage('تعذر ربط المسودة: '+(err?.message||String(err)),true);}
+  finally{b.disabled=false;}
+});
+
 async function submit(e,fn){e.preventDefault();let b=e.target.querySelector('button[type=submit],button:not([type])');if(b)b.disabled=true;try{await fn(new FormData(e.target));e.target.reset();await refresh()}catch(err){alert('فشلت العملية: '+err.message)}finally{if(b)b.disabled=false}}
 $('productForm').addEventListener('submit',e=>submit(e,async f=>{let name=String(f.get('name')).trim(),p=Number(f.get('price')),c=Number(f.get('cost'));if(!name||p<0||c<0)throw Error('تحقق من المعلومات');let {error}=await sb.from('products').insert({name,price_iqd:p,cost_iqd:c});if(error)throw error}));
 $('expenseForm').addEventListener('submit',e=>submit(e,async f=>{let {error}=await sb.from('expenses').insert({category:String(f.get('category')),description:String(f.get('description')).trim(),amount_iqd:Number(f.get('amount'))});if(error)throw error}));
