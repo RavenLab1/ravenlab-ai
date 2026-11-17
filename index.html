@@ -22,6 +22,29 @@
 .customer-name-btn{background:none;border:0;color:#dff6ca;padding:0;font-weight:bold;text-decoration:underline;text-decoration-style:dotted}.customer-name-btn:hover{color:var(--accent)}
 .crm-message{font-size:12px;color:#c9dfa8}
 @media(max-width:900px){.crm-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.crm-columns,.profile-grid{grid-template-columns:1fr}.profile-grid .wide{grid-column:auto}.crm-filters{grid-template-columns:1fr}.link-row{grid-template-columns:1fr}}
+
+.customer-ai-panel{border:1px solid #315237;border-radius:14px;padding:16px;background:#0d1710;display:grid;gap:14px}
+.customer-ai-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.customer-ai-head h3{margin:0}
+.customer-ai-endpoint{display:grid;grid-template-columns:minmax(220px,1fr) auto;gap:10px;align-items:end}
+.customer-ai-endpoint label{margin:0}
+.customer-ai-insight{display:grid;gap:12px}
+.ai-insight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ai-insight-card{border:1px solid #29472f;border-radius:12px;padding:12px;background:#101d13}
+.ai-insight-card small{display:block;color:#9db19f;margin-bottom:6px}
+.ai-insight-card strong,.ai-insight-card p{margin:0;white-space:pre-wrap}
+.ai-insight-list{border:1px solid #29472f;border-radius:12px;padding:12px;background:#101d13}
+.ai-insight-list h4{margin:0 0 8px}
+.ai-insight-list ul{margin:0;padding-inline-start:20px}
+.ai-insight-list li{margin:5px 0}
+.ai-potential{display:inline-flex;align-items:center;border:1px solid #3a5b3f;border-radius:999px;padding:4px 10px;font-size:.86rem}
+.ai-potential.high{border-color:#6aa84f;color:#b8f58d}
+.ai-potential.medium{border-color:#c99a3b;color:#f2ce79}
+.ai-potential.low{border-color:#a94d4d;color:#ffaaaa}
+.ai-potential.unknown{color:#c4ccc4}
+.ai-timestamp{font-size:.86rem;color:#93a493}
+@media(max-width:850px){.ai-insight-grid{grid-template-columns:1fr}.customer-ai-endpoint{grid-template-columns:1fr}}
+
 </style></head><body>
 <main class="app">
 <header class="top"><div class="logo"><div class="mark">R</div><div><h1>RavenLab AI</h1><div class="sub">لوحة إدارة متصلة بـSupabase • v1.5</div></div></div><div class="top-actions"><span class="pill">● غير مرتبط بإنستغرام بعد</span><button id="logout" class="btn ghost hidden">تسجيل خروج</button></div></header>
@@ -72,6 +95,29 @@
     <button type="button" id="closeCustomerProfile" class="btn ghost">إغلاق الملف</button>
   </div>
   <div id="customerProfileStats" class="profile-stats"></div>
+
+  <div class="customer-ai-panel">
+    <div class="customer-ai-head">
+      <div>
+        <h3>تحليل RavenLab AI للعميل</h3>
+        <p class="help">التحليل يعتمد على سجل الطلبات والمبيعات فقط. الاسم والهاتف والعنوان وInstagram ID لا يتم إرسالها إلى Gemini.</p>
+      </div>
+      <button type="button" id="analyzeCustomerBtn" class="btn">حلّل العميل</button>
+    </div>
+
+    <div class="customer-ai-endpoint">
+      <label>Endpoint تحليل العميل
+        <input id="customerInsightsEndpoint" autocomplete="off" spellcheck="false" placeholder="ravenlab-customer-insights">
+      </label>
+      <button type="button" id="saveCustomerInsightsEndpoint" class="btn ghost">حفظ Endpoint</button>
+    </div>
+    <small class="help">اكتب فقط آخر جزء من رابط Supabase بعد /functions/v1/ إذا كان الاسم المنشور مختلفاً.</small>
+
+    <p id="customerAiStatus" class="crm-message" aria-live="polite"></p>
+    <div id="customerAiInsight" class="customer-ai-insight">
+      <p class="empty">لا يوجد تحليل محفوظ لهذا العميل بعد.</p>
+    </div>
+  </div>
   <form id="customerProfileForm" class="profile-grid">
     <label>الاسم<input id="profileName" maxlength="150"></label>
     <label>Instagram ID<input id="profileInstagram" maxlength="150"></label>
@@ -136,11 +182,11 @@
   </div>
   <p id="draftHint" class="help" aria-live="polite"></p>
   <p class="help">الذاكرة مؤقتة داخل الصفحة فقط (آخر 16 رسالة). تختفي عند التحديث أو الضغط على محادثة جديدة. لا تدخل بيانات عملاء حقيقية هنا.</p></div></section>
-</section><footer class="foot">RavenLab AI v1.5 • Manager AI + Smart Alerts + Sales Analytics + Supabase • No Instagram connection</footer></main>
+</section><footer class="foot">RavenLab AI v1.6 • Customer AI Insights + CRM + Manager AI + Supabase • No Instagram connection</footer></main>
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const $=id=>document.getElementById(id), money=n=>Math.round(Number(n)||0).toLocaleString('en-US')+' د.ع';
-const CFG='ravenlab-public-config', MANAGER_ENDPOINT_KEY='ravenlab-manager-endpoint';let sb=null, state={products:[],orders:[],expenses:[],financials:[],alertSettings:null,smartAlerts:[],customers:[],crm:[],customerDrafts:[]};
+const CFG='ravenlab-public-config', MANAGER_ENDPOINT_KEY='ravenlab-manager-endpoint', CUSTOMER_INSIGHTS_ENDPOINT_KEY='ravenlab-customer-insights-endpoint';let sb=null, state={products:[],orders:[],expenses:[],financials:[],alertSettings:null,smartAlerts:[],customers:[],crm:[],customerDrafts:[],customerInsights:[]};
 const statuses={new:'جديد',design:'قيد التصميم',ready_to_print:'جاهز للطباعة',printing:'قيد الطباعة',ready:'جاهز',delivered:'تم التسليم',cancelled:'ملغي'};
 const orderStatusFlow=['new','design','ready_to_print','printing','ready','delivered'];
 const el=(tag,txt,cls)=>{let n=document.createElement(tag);if(txt!==undefined)n.textContent=String(txt);if(cls)n.className=cls;return n};
@@ -264,7 +310,8 @@ async function refresh(){
     sb.from('order_smart_alerts').select('*').order('updated_at',{ascending:true}),
     sb.from('customers').select('id,instagram_id,name,phone,governorate,address,notes,created_at').order('created_at',{ascending:false}),
     sb.from('customer_crm_summary').select('*').order('lifetime_revenue_iqd',{ascending:false}),
-    sb.from('order_drafts').select('id,customer_id,customer_label,product_name,quantity,quoted_price_iqd,status,created_at').order('created_at',{ascending:false}).limit(300)
+    sb.from('order_drafts').select('id,customer_id,customer_label,product_name,quantity,quoted_price_iqd,status,created_at').order('created_at',{ascending:false}).limit(300),
+    sb.from('customer_ai_insights').select('id,customer_id,customer_type,summary,priority,purchase_behavior,repeat_purchase_potential,recommended_action,favorite_products,alerts,recommendations,analyzed_at').order('analyzed_at',{ascending:false}).limit(500)
   ];
   let results=await Promise.all(reqs);
   let err=results.find(x=>x.error)?.error;if(err)throw err;
@@ -277,10 +324,11 @@ async function refresh(){
     smartAlerts:results[5].data||[],
     customers:results[6].data||[],
     crm:results[7].data||[],
-    customerDrafts:results[8].data||[]
+    customerDrafts:results[8].data||[],
+    customerInsights:results[9].data||[]
   };
   render();
-  msg('✓ متصل بقاعدة بيانات Supabase — RavenLab AI v1.5 محدث');
+  msg('✓ متصل بقاعدة بيانات Supabase — RavenLab AI v1.6 محدث');
 }
 
 let selectedCustomerId=null;
@@ -326,6 +374,84 @@ function renderCustomers(){
     else closeCustomerProfile();
   }
 }
+
+function customerInsightById(id){
+  return (state.customerInsights||[]).find(x=>String(x.customer_id)===String(id))||null;
+}
+function customerAiSetMessage(text,isError=false){
+  const n=$('customerAiStatus');if(!n)return;
+  n.textContent=text||'';
+  n.style.color=isError?'#ffa9a9':'#c9dfa8';
+}
+function customerInsightsEndpoint(){
+  const saved=String(localStorage.getItem(CUSTOMER_INSIGHTS_ENDPOINT_KEY)||'').trim();
+  return saved||'ravenlab-customer-insights';
+}
+function repeatPotentialLabel(value){
+  return ({high:'مرتفعة',medium:'متوسطة',low:'منخفضة',unknown:'غير معروفة'})[value]||'غير معروفة';
+}
+function aiListBox(title,items,formatter){
+  const box=el('div',undefined,'ai-insight-list');
+  box.append(el('h4',title));
+  const list=Array.isArray(items)?items:[];
+  if(!list.length){box.append(el('p','لا توجد بيانات كافية.','help'));return box;}
+  const ul=el('ul');
+  for(const item of list){
+    let text='';
+    if(formatter)text=formatter(item);
+    else if(typeof item==='string')text=item;
+    else text=String(item??'');
+    if(text)ul.append(el('li',text));
+  }
+  if(!ul.children.length)box.append(el('p','لا توجد بيانات كافية.','help'));else box.append(ul);
+  return box;
+}
+function renderCustomerAiInsight(){
+  const root=$('customerAiInsight'),c=currentCustomer();if(!root||!c)return;
+  $('customerInsightsEndpoint').value=customerInsightsEndpoint();
+  root.replaceChildren();
+  const insight=customerInsightById(c.id);
+  if(!insight){
+    root.append(el('p','لا يوجد تحليل محفوظ لهذا العميل بعد. اضغط «حلّل العميل» لإنشاء أول تحليل.','empty'));
+    return;
+  }
+
+  const potential=String(insight.repeat_purchase_potential||'unknown');
+  const top=el('div',undefined,'ai-insight-grid');
+
+  const summary=el('div',undefined,'ai-insight-card');
+  summary.append(el('small','الملخص'),el('p',insight.summary||'لا توجد بيانات كافية.'));
+
+  const priority=el('div',undefined,'ai-insight-card');
+  priority.append(el('small','الأولوية الحالية'),el('p',insight.priority||'—'));
+
+  const action=el('div',undefined,'ai-insight-card');
+  action.append(el('small','الإجراء المقترح'),el('p',insight.recommended_action||'—'));
+
+  const behavior=el('div',undefined,'ai-insight-card');
+  behavior.append(el('small','سلوك الشراء'),el('p',insight.purchase_behavior||'—'));
+
+  const potentialCard=el('div',undefined,'ai-insight-card');
+  potentialCard.append(el('small','احتمال إعادة الشراء'));
+  potentialCard.append(el('span',repeatPotentialLabel(potential),'ai-potential '+potential));
+
+  const timeCard=el('div',undefined,'ai-insight-card');
+  timeCard.append(el('small','آخر تحليل'),el('p',safeDate(insight.analyzed_at),'ai-timestamp'));
+
+  top.append(summary,priority,action,behavior,potentialCard,timeCard);
+  root.append(top);
+
+  root.append(
+    aiListBox('المنتجات المفضلة',insight.favorite_products,item=>{
+      if(typeof item==='string')return item;
+      if(item&&typeof item==='object')return [item.name,item.reason].filter(Boolean).join(' — ');
+      return '';
+    }),
+    aiListBox('التنبيهات',insight.alerts),
+    aiListBox('التوصيات',insight.recommendations)
+  );
+}
+
 function renderCustomerProfile(){
   const c=currentCustomer();if(!c)return closeCustomerProfile();
   const s=customerSummaryById(c.id)||{};
@@ -340,6 +466,7 @@ function renderCustomerProfile(){
     profileStat('الربح الإجمالي',money(s.lifetime_gross_profit_iqd))
   );
   $('profileName').value=c.name||'';$('profileInstagram').value=c.instagram_id||'';$('profilePhone').value=c.phone||'';$('profileGovernorate').value=c.governorate||'';$('profileAddress').value=c.address||'';$('profileNotes').value=c.notes||'';
+  renderCustomerAiInsight();
   const orders=(state.orders||[]).filter(o=>String(o.customer_id)===String(c.id));
   table('customerOrdersTable',['الطلب','المنتجات','القيمة','الحالة','التاريخ'],orders.map(o=>{const x=orderTotals(o);return ['#'+o.id,orderDescription(o),money(x.sale+Number(o.delivery_fee_iqd||0)),statuses[o.status]||o.status,safeDate(o.created_at)]}));
   const drafts=(state.customerDrafts||[]).filter(d=>String(d.customer_id)===String(c.id));
@@ -351,7 +478,7 @@ function renderCustomerProfile(){
   $('linkDraftSelect').replaceChildren(...(unlinkedDrafts.length?unlinkedDrafts.map(d=>new Option('#'+d.id+' — '+(d.product_name||d.customer_label||'مسودة'),String(d.id))):[new Option('لا توجد مسودات غير مرتبطة','')]));
   $('linkDraftBtn').disabled=!unlinkedDrafts.length;
 }
-function openCustomerProfile(id){selectedCustomerId=Number(id);profileSetMessage('');renderCustomerProfile();$('customerProfile').scrollIntoView({behavior:'smooth',block:'start'});}
+function openCustomerProfile(id){selectedCustomerId=Number(id);profileSetMessage('');customerAiSetMessage('');renderCustomerProfile();$('customerProfile').scrollIntoView({behavior:'smooth',block:'start'});}
 function closeCustomerProfile(){selectedCustomerId=null;if($('customerProfile'))$('customerProfile').classList.add('hidden');}
 async function reloadCustomerData(message='✓ تم تحديث بيانات العملاء.'){
   crmSetMessage('جار تحديث بيانات العملاء...');
@@ -433,6 +560,50 @@ $('linkDraftBtn')?.addEventListener('click',async()=>{
     await refresh();profileSetMessage('✓ تم ربط المسودة #'+draftId+' بالعميل.');
   }catch(err){profileSetMessage('تعذر ربط المسودة: '+(err?.message||String(err)),true);}
   finally{b.disabled=false;}
+});
+
+
+$('saveCustomerInsightsEndpoint')?.addEventListener('click',()=>{
+  const input=$('customerInsightsEndpoint');
+  const endpoint=String(input?.value||'').trim().replace(/^\/+|\/+$/g,'');
+  if(!endpoint||!/^[A-Za-z0-9_-]+$/.test(endpoint)){
+    customerAiSetMessage('اكتب اسم Endpoint فقط بدون الرابط الكامل.',true);
+    return;
+  }
+  localStorage.setItem(CUSTOMER_INSIGHTS_ENDPOINT_KEY,endpoint);
+  input.value=endpoint;
+  customerAiSetMessage('✓ تم حفظ Endpoint تحليل العميل.');
+});
+
+$('analyzeCustomerBtn')?.addEventListener('click',async()=>{
+  const c=currentCustomer();if(!c)return;
+  const b=$('analyzeCustomerBtn');
+  b.disabled=true;
+  customerAiSetMessage('جار تحليل سجل العميل...');
+  try{
+    const endpoint=customerInsightsEndpoint();
+    const {data,error}=await sb.functions.invoke(endpoint,{body:{customer_id:Number(c.id)}});
+    if(error){
+      let detail='';
+      try{
+        const ctx=error.context;
+        if(ctx&&typeof ctx.json==='function'){
+          const body=await ctx.json();
+          detail=body?.error?(' — '+body.error):'';
+        }
+      }catch{}
+      throw Error((error.message||'فشل استدعاء وظيفة التحليل')+detail);
+    }
+    if(!data?.insight)throw Error(data?.error||'لم يصل تحليل صالح من الوظيفة.');
+    await refresh();
+    selectedCustomerId=Number(c.id);
+    renderCustomerProfile();
+    customerAiSetMessage('✓ تم تحليل العميل وحفظ آخر نتيجة. لم تُرسل بيانات الاتصال الشخصية إلى Gemini.');
+  }catch(err){
+    customerAiSetMessage('تعذر تحليل العميل: '+(err?.message||String(err))+' — تأكد من Endpoint المنشور في Supabase.',true);
+  }finally{
+    b.disabled=false;
+  }
 });
 
 async function submit(e,fn){e.preventDefault();let b=e.target.querySelector('button[type=submit],button:not([type])');if(b)b.disabled=true;try{await fn(new FormData(e.target));e.target.reset();await refresh()}catch(err){alert('فشلت العملية: '+err.message)}finally{if(b)b.disabled=false}}
